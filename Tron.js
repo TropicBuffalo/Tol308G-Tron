@@ -12,6 +12,7 @@ var g_ctx = g_canvas.getContext("2d");
 */
 
 // ============
+// BIKE STUFF
 // ============
 var KEY_A = 'A'.charCodeAt(0);
 var KEY_D = 'D'.charCodeAt(0);
