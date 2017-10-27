@@ -25,12 +25,13 @@ var g_ball = new Ball({
     radius: 2,
 
     xVel: 1,
-    yVel: 0
+    yVel: 0,
 	
 	GO_LEFT   : KEY_A,
     GO_RIGHT : KEY_D,
 	GO_UP   : KEY_W,
     GO_DOWN : KEY_S
+	
 });
 
 

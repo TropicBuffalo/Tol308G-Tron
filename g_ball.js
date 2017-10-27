@@ -22,13 +22,17 @@ Ball.prototype.update = function (du) {
 	//Movement 
 	//Left
     if (g_keys[this.GO_LEFT]) {
-        this.xVel -= 1;
+        this.xVel = -1;
+		this.yVel = 0;
     } else if (g_keys[this.GO_RIGHT]) {
-        this.xVel += 1;
+        this.xVel = 1;
+		this.yVel = 0;
     } else if (g_keys[this.GO_UP]) {
-        this.yVel -= 1;
+        this.yVel = -1;
+		this.xVel = 0;
     } else if (g_keys[this.GO_DOWN]) {
-        this.yVel += 1;
+        this.yVel = 1;
+		this.xVel = 0;
     }
     
     // Bounce off left and right edges
