@@ -1,9 +1,12 @@
 // =====
 // UTILS
 // =====
-
+//Creates black background
 function clearCanvas(ctx) {
-    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    var prevfillStyle = ctx.fillStyle;
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    ctx.fillStyle = prevfillStyle;
 }
 
 function fillCircle(ctx, x, y, r) {
@@ -12,6 +15,7 @@ function fillCircle(ctx, x, y, r) {
     ctx.fill();
 }
 
+//No clue how to use this :|
 function fillBox(ctx, x, y, w, h, style) {
     var oldStyle = ctx.fillStyle;
     ctx.fillStyle = style;
