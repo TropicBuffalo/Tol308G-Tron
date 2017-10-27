@@ -14,12 +14,15 @@ var g_ctx = g_canvas.getContext("2d");
 // ============
 // BIKE STUFF
 // ============
+
+//Player 1 Movement keys
 var KEY_A = 'A'.charCodeAt(0);
 var KEY_D = 'D'.charCodeAt(0);
 var KEY_W = 'W'.charCodeAt(0);
 var KEY_S = 'S'.charCodeAt(0);
 
-var g_ball = new Ball({
+//Player 1 bike
+var g_bike = new Bike({
     cx: 210,
     cy: 200,
     radius: 2,
@@ -30,8 +33,7 @@ var g_ball = new Ball({
 	GO_LEFT   : KEY_A,
     GO_RIGHT : KEY_D,
 	GO_UP   : KEY_W,
-    GO_DOWN : KEY_S
-	
+    GO_DOWN : KEY_S	
 });
 
 
@@ -59,7 +61,7 @@ function gatherInputs() {
 // GAME-SPECIFIC UPDATE LOGIC
 
 function updateSimulation(du) {
-    g_ball.update(du);
+    g_bike.update(du);
 }
 
 
@@ -78,7 +80,7 @@ function updateSimulation(du) {
 // GAME-SPECIFIC RENDERING
 
 function renderSimulation(ctx) {
-	g_ball.render(ctx);
+	g_bike.render(ctx);
 
 }
 

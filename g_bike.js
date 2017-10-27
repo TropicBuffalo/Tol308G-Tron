@@ -1,16 +1,16 @@
 // ==========
-// BALL STUFF
+// BIKE STUFF
 // ==========
 
 // BIKE STUFF
-function Ball(descr) {
+//Constructor for the bike
+function Bike(descr) {
     for (var property in descr) {
         this[property] = descr[property];
     }
 }
 
-
-Ball.prototype.update = function (du) {
+Bike.prototype.update = function (du) {
     // Remember my previous position
     var prevX = this.cx;
     var prevY = this.cy;
@@ -18,25 +18,31 @@ Ball.prototype.update = function (du) {
     // Compute my provisional new position (barring collisions)
     var nextX = prevX + this.xVel * du;
     var nextY = prevY + this.yVel * du;
-
-	//Movement 
+    
+	//Movement for the bike
 	//Left
     if (g_keys[this.GO_LEFT]) {
         this.xVel = -1;
 		this.yVel = 0;
-    } else if (g_keys[this.GO_RIGHT]) {
+    } 
+	//Right
+	else if (g_keys[this.GO_RIGHT]) {
         this.xVel = 1;
 		this.yVel = 0;
-    } else if (g_keys[this.GO_UP]) {
+    } 
+	//Up
+	else if (g_keys[this.GO_UP]) {
         this.yVel = -1;
 		this.xVel = 0;
-    } else if (g_keys[this.GO_DOWN]) {
+    } 
+	//Down
+	else if (g_keys[this.GO_DOWN]) {
         this.yVel = 1;
 		this.xVel = 0;
     }
     
     // Bounce off left and right edges
-    if (nextX < 5 ||                             // left edge
+    if (nextX < 5 ||                 // left edge
         nextX > 395) {               // right edge
         this.xVel *= -1;
     }
@@ -61,14 +67,14 @@ Ball.prototype.update = function (du) {
     this.cy += this.yVel * du;
 };
 
-Ball.prototype.reset = function () {
+Bike.prototype.reset = function () {
     this.cx = 100;
     this.cy = 200;
     this.xVel = -1;
     this.yVel = 0;
 };
 
-Ball.prototype.render = function (ctx) {
+Bike.prototype.render = function (ctx) {
 	ctx.fillStyle = '#67C8FF';
     fillCircle(ctx, this.cx, this.cy, this.radius);
 };
