@@ -22,11 +22,9 @@ var KEY_W = 'W'.charCodeAt(0);
 var KEY_S = 'S'.charCodeAt(0);
 
 /*
-Trail er halinn sem kemur á eftir fyrsta "sprite-inu" er að reyna gera array sem heldur
-utan um gildin og teiknar upp 10 síðustu, þá er hægt að gera collision með að vísa á þennan array.
-Er ekki að ganga eins og er samt.
-location er prufa fyir að geyma x og y hnit í array og það virkar.
-
+Trail er halinn sem kemur á eftir fyrsta "sprite-inu". 
+Hér eru trailX og trailY Array sem halda utan um X- og Y-hnit halans.
+Lengd halans eru ákvörðuð af trailLength.
 */
 
 //Player 1 bike
@@ -36,7 +34,9 @@ var g_bike = new Bike({
 	location:[100,100],
 	
 	color : "blue",
-	trail : [],
+	trailLength: 100,
+	trailX : [],
+	trailY : [],
     xVel: 1,
     yVel: 0,
 	
