@@ -74,13 +74,18 @@ Bike.prototype.update = function (du) {
 	
     this.cx += this.xVel * du;
     this.cy += this.yVel * du;
+
+	//Núverandi hnit eru "pushuð" inní trailX og trailY.
+	//Ef annarhvor "Array-inn" verður lengri en trailLength:
+	//Framkvæmum við Array.shift();
 	
-	this.location[0] += this.xVel*du;
-	this.location[1] += this.yVel*du;
-	
-	//Er að reyna búa til halann með að setja gildin inn í array, er ekki að virka
-	this.trail.push(this.location);
-	console.log(this.trail);
+	this.trailX.push(this.cx);
+	this.trailY.push(this.cy);
+	if (this.trailX.length > this.trailLength)
+		this.trailX.shift();
+	if (this.trailY.length > this.trailLength)
+		this.trailY.shift();
+
 };
 
 Bike.prototype.reset = function () {
@@ -93,8 +98,10 @@ Bike.prototype.reset = function () {
 Bike.prototype.render = function (ctx) {
 	var c = this.color;
     fillBox(ctx, this.cx, this.cy, 10,10, c);
-	fillBox(ctx, this.location[0] ,this.location[1] ,10 ,10 ,c);
-	//Er að reyna fá array sem heldur um a.m.k 10 gildi og teikna síðan 10 síðustu gildi sem halann
-	//fillBox(ctx, this.trail[0][0] ,this.trail[0][1] ,10 ,10 ,c);
+	for(var i = 0; i<this.trailX.length; i++){
+		fillBox(ctx, this.trailX[i] ,this.trailY[i] ,10 ,10 ,c);
+	}
+	//Hér er framkvæmt fillBox á hvert gildi í trailX og trailY
+	//Út kemur hali
 
 };
