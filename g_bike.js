@@ -22,23 +22,35 @@ Bike.prototype.update = function (du) {
 	//Movement for the bike
 	//Left
     if (g_keys[this.GO_LEFT]) {
-        this.xVel = -1;
-		this.yVel = 0;
+		if (this.xVel > 0) return;
+		else {
+			this.xVel = -1;
+			this.yVel = 0;
+		}
     } 
 	//Right
 	else if (g_keys[this.GO_RIGHT]) {
-        this.xVel = 1;
-		this.yVel = 0;
+		if (this.xVel < 0) return;
+		else {
+			this.xVel = 1;
+			this.yVel = 0;
+		}
     } 
 	//Up
 	else if (g_keys[this.GO_UP]) {
-        this.yVel = -1;
-		this.xVel = 0;
+		if (this.yVel > 0) return;
+		else {
+			this.yVel = -1;
+			this.xVel = 0;
+		}
     } 
 	//Down
 	else if (g_keys[this.GO_DOWN]) {
-        this.yVel = 1;
-		this.xVel = 0;
+		if (this.yVel < 0) return;
+		else {
+			this.yVel = 1;
+			this.xVel = 0;
+		}
     }
     
     // Bounce off left and right edges
