@@ -28,8 +28,8 @@ Lengd halans eru ákvörðuð af trailLength.
 */
 
 //Player 1 bike
-var g_bike = new Bike({
-    cx: 210,
+var g_bike1 = new Bike({
+    cx: 100,
     cy: 200,
 	
 	color : "blue",
@@ -45,6 +45,28 @@ var g_bike = new Bike({
     GO_DOWN : KEY_S	
 });
 
+//Player 2
+var KEY_LeftA = 37;
+var KEY_RightA = 39;
+var KEY_UpA = 38;
+var KEY_DownA = 40;
+
+var g_bike2 = new Bike({
+    cx: 300,
+    cy: 200,
+	
+	color : "red",
+	trailLength: 1000,
+	trailX : [],
+	trailY : [],
+    xVel: -5,
+    yVel: 0,
+	
+	GO_LEFT   : KEY_LeftA,
+    GO_RIGHT : KEY_RightA,
+	GO_UP   : KEY_UpA,
+    GO_DOWN : KEY_DownA	
+});
 
 // =============
 // GATHER INPUTS
@@ -70,7 +92,8 @@ function gatherInputs() {
 // GAME-SPECIFIC UPDATE LOGIC
 
 function updateSimulation(du) {
-    g_bike.update(du);
+    g_bike1.update(du);
+	g_bike2.update(du);
 }
 
 
@@ -89,7 +112,8 @@ function updateSimulation(du) {
 // GAME-SPECIFIC RENDERING
 
 function renderSimulation(ctx) {
-	g_bike.render(ctx);
+	g_bike1.render(ctx);
+	g_bike2.render(ctx);
 
 }
 
