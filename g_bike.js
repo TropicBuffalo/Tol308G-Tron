@@ -24,7 +24,7 @@ Bike.prototype.update = function (du) {
     if (g_keys[this.GO_LEFT]) {
 		if (this.xVel > 0) return;
 		else {
-			this.xVel = -1;
+			this.xVel = -5;
 			this.yVel = 0;
 		}
     } 
@@ -32,7 +32,7 @@ Bike.prototype.update = function (du) {
 	else if (g_keys[this.GO_RIGHT]) {
 		if (this.xVel < 0) return;
 		else {
-			this.xVel = 1;
+			this.xVel = 5;
 			this.yVel = 0;
 		}
     } 
@@ -40,7 +40,7 @@ Bike.prototype.update = function (du) {
 	else if (g_keys[this.GO_UP]) {
 		if (this.yVel > 0) return;
 		else {
-			this.yVel = -1;
+			this.yVel = -5;
 			this.xVel = 0;
 		}
     } 
@@ -48,7 +48,7 @@ Bike.prototype.update = function (du) {
 	else if (g_keys[this.GO_DOWN]) {
 		if (this.yVel < 0) return;
 		else {
-			this.yVel = 1;
+			this.yVel = 5;
 			this.xVel = 0;
 		}
     }
@@ -91,7 +91,7 @@ Bike.prototype.update = function (du) {
 Bike.prototype.reset = function () {
     this.cx = 100;
     this.cy = 200;
-    this.xVel = -1;
+    this.xVel = 5;
     this.yVel = 0;
 };
 

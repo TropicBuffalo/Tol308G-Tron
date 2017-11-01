@@ -33,10 +33,10 @@ var g_bike = new Bike({
     cy: 200,
 	
 	color : "blue",
-	trailLength: 100,
+	trailLength: 1000,
 	trailX : [],
 	trailY : [],
-    xVel: 1,
+    xVel: 5,
     yVel: 0,
 	
 	GO_LEFT   : KEY_A,
