@@ -40,26 +40,28 @@ Bike.prototype.update = function (du) {
 	  else if (g_keys[this.GO_UP]) {
 		    if (this.yVel > 0) return;
 		    else {
-			      this.yVel = -5;
 			      this.xVel = 0;
+            this.yVel = -5;
 		    }
     }
 	  //Down
 	  else if (g_keys[this.GO_DOWN]) {
 		    if (this.yVel < 0) return;
 		    else {
-			      this.yVel = 5;
 			      this.xVel = 0;
+            this.yVel = 5;
 		    }
     }
 
     // Bounce off left and right edges
-    if (nextX < 5 ||                 // left edge
-        nextX > 395) {               // right edge
+    if (nextX < 0 ||                 // left edge
+        nextX > g_canvas.width) { // right edge
         this.xVel *= -1;
     }
 
-	  if (nextY < 5) {
+    // Bounce off top and bottom edges
+	  if (nextY < 0 ||
+        nextY > g_canvas.height) {
 		    this.yVel *= -1;
 	  }
 
@@ -80,6 +82,7 @@ Bike.prototype.update = function (du) {
 
   	this.trailX.push(this.cx);
   	this.trailY.push(this.cy);
+
   	if (this.trailX.length > this.trailLength)
   		  this.trailX.shift();
   	if (this.trailY.length > this.trailLength)
@@ -96,6 +99,7 @@ Bike.prototype.reset = function () {
 Bike.prototype.render = function (ctx) {
 	  var c = this.color;
     fillBox(ctx, this.cx, this.cy, 10, 10, c);
+
 	  for (var i = 0; i < this.trailX.length; i++) {
 		    fillBox(ctx, this.trailX[i], this.trailY[i], 10, 10, c);
 	  }
