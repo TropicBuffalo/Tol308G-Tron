@@ -25,7 +25,7 @@ function drawBrick(x,y,type){
     switch(type){ 
 		case 2:
 			//Color does nothing, just there for the type.
-			g_ctx.fillStyle = 'orange';
+			g_ctx.fillStyle = 'red';
 			break;
 		case 1:
 			//Color does nothing, just there for the type.

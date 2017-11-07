@@ -92,12 +92,12 @@ Bike.prototype.update = function (du) {
 		window.alert("collision");
 	}
 */
-    var brickX = Math.floor (prevX / 5.001);
-	var brickY = Math.floor (prevY / 5.001);
-	if(this.player = 1) {
+    var brickX = Math.floor (prevX / 5.00);
+	var brickY = Math.floor (prevY / 5.00);
+	if(this.player === 1) {
 		grid[brickX][brickY] = 1;
 	}
-	else if(this.player = 2) {
+	else if(this.player === 2) {
 		grid[brickX][brickY] = 2;
 	}
 	
@@ -123,8 +123,8 @@ Bike.prototype.update = function (du) {
     var margin = 4 * this.radius;
 
 
-    this.cx += this.xVel * du;
-    this.cy += this.yVel * du;
+    this.cx += Math.floor(this.xVel * du);
+    this.cy += Math.floor(this.yVel * du);
 
   	//Núverandi hnit eru "pushuð" inní trailX og trailY.
   	//Ef annarhvor "Array-inn" verður lengri en trailLength:
