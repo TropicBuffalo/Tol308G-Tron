@@ -75,7 +75,7 @@ Bike.prototype.update = function (du) {
   			window.alert("Dead");
   			*/
   			this.reset();
-  			for (var i = 0 ; i < 80; i++) {
+  			for (var i = 0; i < 80; i++) {
   			    grid[i] = [];
   			    for (var j = 0; j < 80; j++) {
   				      grid[i][j] = 0;
@@ -93,7 +93,7 @@ Bike.prototype.update = function (du) {
     	}
     */
 	  if (trailPaint(prevX, prevY)) {
-		    drawBrick(prevX,prevY,1);
+		    drawBrick(prevX, prevY, 1);
 	  }
 
     // Reset if we fall off the left or right edges
