@@ -22,69 +22,71 @@ Bike.prototype.update = function (du) {
 	  //Movement for the bike
 	  //Left
     if (g_keys[this.GO_LEFT]) {
-		if (this.xVel > 0) return;
-		else {
-			this.xVel = -5;
-			this.yVel = 0;
-		}
+		    if (this.xVel > 0) return;
+		    else {
+			      this.xVel = -5;
+			      this.yVel = 0;
+		    }
     }
 	  //Right
-	else if (g_keys[this.GO_RIGHT]) {
-		if (this.xVel < 0) return;
-		else {
-			this.xVel = 5;
-			this.yVel = 0;
-		}
+	  else if (g_keys[this.GO_RIGHT]) {
+		    if (this.xVel < 0) return;
+		    else {
+			      this.xVel = 5;
+			      this.yVel = 0;
+		    }
     }
 	  //Up
-	else if (g_keys[this.GO_UP]) {
-		if (this.yVel > 0) return;
-		else {
-			this.xVel = 0;
+	  else if (g_keys[this.GO_UP]) {
+		    if (this.yVel > 0) return;
+		    else {
+			      this.xVel = 0;
             this.yVel = -5;
-		}
+		    }
     }
 	  //Down
-	else if (g_keys[this.GO_DOWN]) {
-		if (this.yVel < 0) return;
-		else {
-			this.xVel = 0;
+	  else if (g_keys[this.GO_DOWN]) {
+		    if (this.yVel < 0) return;
+		    else {
+			      this.xVel = 0;
             this.yVel = 5;
-		}
+		    }
     }
 
     // Bounce off left and right edges
     if (nextX < 0 ||                 // left edge
         nextX > g_canvas.width) { // right edge
-		/*
-		window.alert("Dead");
-		*/
-		this.reset();
-		for (var i = 0 ; i < 80; i++) {
-			grid[i] = [];
-			for (var j = 0; j < 80; j++) { 
-				grid[i][j] = 0;
-    }
-}
+    		/*
+    		window.alert("Dead");
+    		*/
+    		this.reset();
+    		for (var i = 0 ; i < 80; i++) {
+    		    grid[i] = [];
+    			  for (var j = 0; j < 80; j++) {
+    				    grid[i][j] = 0;
+            }
+        }
     }
 
     // Bounce off top and bottom edges
-	if (nextY < 0 ||
+	  if (nextY < 0 ||
         nextY > g_canvas.height) {
-			/*
-			window.alert("Dead");
-			*/
-			this.reset();
-			for (var i = 0 ; i < 80; i++) {
-			grid[i] = [];
-			for (var j = 0; j < 80; j++) { 
-				grid[i][j] = 0;
-    }
-}
-			/*
-		    this.yVel *= -1;
-			*/
+  			/*
+  			window.alert("Dead");
+  			*/
+  			this.reset();
+  			for (var i = 0; i < 80; i++) {
+  			    grid[i] = [];
+  			    for (var j = 0; j < 80; j++) {
+  				      grid[i][j] = 0;
+            }
+        }
+
+  			/*
+  		    this.yVel *= -1;
+  			*/
 	  }
+<<<<<<< HEAD
 /*
 	//Collision stuff.
 	if (collide(nextX,nextY)){
@@ -105,6 +107,18 @@ Bike.prototype.update = function (du) {
 		drawBrick(prevX,prevY,1);
 	}
 	  
+=======
+    /*
+    	//Collision stuff.
+    	if (collide(nextX,nextY)){
+    		window.alert("collision");
+    	}
+    */
+	  if (trailPaint(prevX, prevY)) {
+		    drawBrick(prevX, prevY, 1);
+	  }
+
+>>>>>>> origin/master
     // Reset if we fall off the left or right edges
     // ...by more than some arbitrary `margin`
     //
@@ -117,7 +131,7 @@ Bike.prototype.update = function (du) {
   	//Núverandi hnit eru "pushuð" inní trailX og trailY.
   	//Ef annarhvor "Array-inn" verður lengri en trailLength:
   	//Framkvæmum við Array.shift();
-/*
+    /*
   	this.trailX.push(this.cx);
   	this.trailY.push(this.cy);
 
@@ -147,7 +161,7 @@ Bike.prototype.render = function (ctx) {
   	//Út kemur hali
 };
 /*
-Bike.prototype.collidesWith = function (prevX, prevY, 
+Bike.prototype.collidesWith = function (prevX, prevY,
                                           nextX, nextY) {
     var bikeEdge = this.cy;
     // Check X coords

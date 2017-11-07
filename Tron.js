@@ -22,7 +22,7 @@ var KEY_W = 'W'.charCodeAt(0);
 var KEY_S = 'S'.charCodeAt(0);
 
 /*
-Trail er halinn sem kemur á eftir fyrsta "sprite-inu". 
+Trail er halinn sem kemur á eftir fyrsta "sprite-inu".
 Hér eru trailX og trailY Array sem halda utan um X- og Y-hnit halans.
 Lengd halans eru ákvörðuð af trailLength.
 */
@@ -40,11 +40,11 @@ var g_bike1 = new Bike({
 	*/
     xVel: 5,
     yVel: 0,
-	
+
 	GO_LEFT   : KEY_A,
     GO_RIGHT : KEY_D,
 	GO_UP   : KEY_W,
-    GO_DOWN : KEY_S	
+    GO_DOWN : KEY_S
 });
 
 //Player 2
@@ -65,11 +65,11 @@ var g_bike2 = new Bike({
 	*/
     xVel: -5,
     yVel: 0,
-	
+
 	GO_LEFT   : KEY_LeftA,
     GO_RIGHT : KEY_RightA,
 	GO_UP   : KEY_UpA,
-    GO_DOWN : KEY_DownA	
+    GO_DOWN : KEY_DownA
 });
 
 // =============
@@ -97,8 +97,12 @@ function gatherInputs() {
 
 function updateSimulation(du) {
     g_bike1.update(du);
+<<<<<<< HEAD
 	g_bike2.update(du);
 	
+=======
+	  g_bike2.update(du);
+>>>>>>> origin/master
 }
 
 
@@ -117,10 +121,16 @@ function updateSimulation(du) {
 // GAME-SPECIFIC RENDERING
 
 function renderSimulation(ctx) {
+<<<<<<< HEAD
 	createBricks();
 	g_bike1.render(ctx);
 	g_bike2.render(ctx);
 	
+=======
+	  g_bike1.render(ctx);
+	  g_bike2.render(ctx);
+
+>>>>>>> origin/master
 }
 
 // Kick it off
