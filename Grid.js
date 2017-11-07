@@ -40,17 +40,17 @@ function drawBrick(x,y,type){
 		
     }
 }
-/*
+
 //Collision stuff.
-function collide(nextX,nextY){
-	var brickX = Math.floor (nextX / GridWidth);
-	var brickY = Math.floor (nextY / GridHeight);
-	if(g_wall[brickX][brickY]) {
+function trailPaint(prevX,prevY){
+	var brickX = Math.floor (prevX / GridWidth);
+	var brickY = Math.floor (prevY / GridHeight);
+	if(grid[brickX][brickY]) {
         return true;
     }
     return false;
 }
-*/
+
 //Can use this to create trail.
 function makeTrail(i, j, a) {
 	if(a === 1) {

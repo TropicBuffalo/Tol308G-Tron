@@ -91,7 +91,9 @@ Bike.prototype.update = function (du) {
 		window.alert("collision");
 	}
 */
-	  
+	if(trailPaint(prevX,prevY)){
+		drawBrick(prevX,prevY,1);
+	}
 	  
     // Reset if we fall off the left or right edges
     // ...by more than some arbitrary `margin`
