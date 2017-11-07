@@ -91,6 +91,16 @@ Bike.prototype.update = function (du) {
 		window.alert("collision");
 	}
 */
+    var brickX = Math.floor (prevX / 5.001);
+	var brickY = Math.floor (prevY / 5.001);
+	if(this.player = 1) {
+		grid[brickX][brickY] = 1;
+	}
+	else if(this.player = 2) {
+		grid[brickX][brickY] = 2;
+	}
+	
+	
 	if(trailPaint(prevX,prevY)){
 		drawBrick(prevX,prevY,1);
 	}

@@ -2,6 +2,7 @@ var GridHeight = 5;
 var GridWidth = 5;
 
 //Makes the array for the grid.
+
 var grid = []; 
 for (var i = 0 ; i < 80; i++) {
     grid[i] = [];
@@ -9,6 +10,8 @@ for (var i = 0 ; i < 80; i++) {
         grid[i][j] = 0;
     }
 }
+
+
 //Creates the bricks.
 function createBricks() {
     for (var i=0; i < grid.length; i++) {
@@ -26,11 +29,9 @@ function drawBrick(x,y,type){
 			break;
 		case 1:
 			//Color does nothing, just there for the type.
-			g_ctx.fillStyle = 'green';
+			g_ctx.fillStyle = 'blue';
 			break;
-        case 0:
-			//Color does nothing, just there for the type.
-			g_ctx.fillStyle = 'red';
+        default:
             break;
  
     }
