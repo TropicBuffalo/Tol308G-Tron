@@ -55,7 +55,7 @@ Bike.prototype.update = function (du) {
 
     // Bounce off left and right edges
     if (nextX < 0 ||                 // left edge
-        nextX > g_canvas.width) { // right edge
+        nextX > 399) { // right edge
     		/*
     		window.alert("Dead");
     		*/
