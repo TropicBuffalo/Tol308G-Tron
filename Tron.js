@@ -31,11 +31,12 @@ Lengd halans eru ákvörðuð af trailLength.
 var g_bike1 = new Bike({
     cx: 100,
     cy: 200,
-	
 	color : "blue",
+	/*
 	trailLength: 1000,
 	trailX : [],
 	trailY : [],
+	*/
     xVel: 5,
     yVel: 0,
 	
@@ -53,12 +54,13 @@ var KEY_DownA = 40;
 
 var g_bike2 = new Bike({
     cx: 300,
-    cy: 200,
-	
+    cy: 100,
 	color : "red",
+	/*
 	trailLength: 1000,
 	trailX : [],
 	trailY : [],
+	*/
     xVel: -5,
     yVel: 0,
 	

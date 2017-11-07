@@ -20,7 +20,16 @@ function createBricks() {
 //"Draws" the bricks.
 function drawBrick(x,y,type){   
     switch(type){ 
+		case 2:
+			//Color does nothing, just there for the type.
+			g_ctx.fillStyle = 'orange';
+			break;
+		case 1:
+			//Color does nothing, just there for the type.
+			g_ctx.fillStyle = 'green';
+			break;
         case 0:
+			//Color does nothing, just there for the type.
 			g_ctx.fillStyle = 'red';
             break;
  
@@ -30,5 +39,30 @@ function drawBrick(x,y,type){
 		g_ctx.strokeRect(x*GridWidth+1,y*GridHeight+1,GridWidth-2,GridHeight-2);
 		
     }
+}
+/*
+function collide(nextX,nextY){
+	var brickX = Math.floor (nextX / GridWidth);
+	var brickY = Math.floor (nextY / GridHeight);
+	if(g_wall[brickX][brickY]) {
+        return true;
+    }
+    return false;
+}
+*/
+
+function makeTrail(i, j, a) {
+	if(a === 1) {
+		grid[i][j] = 1;
+	}
+	if(a === 2) {
+		grid[i][j] = 2;
+	}
+	if(a === 3) {
+		grid[i][j] = 3;
+	}
+	if(a === 4) {
+		grid[i][j] = 4;
+	}
 }
 	
