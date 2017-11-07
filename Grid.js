@@ -41,6 +41,7 @@ function drawBrick(x,y,type){
     }
 }
 /*
+//Collision stuff.
 function collide(nextX,nextY){
 	var brickX = Math.floor (nextX / GridWidth);
 	var brickY = Math.floor (nextY / GridHeight);
@@ -50,7 +51,7 @@ function collide(nextX,nextY){
     return false;
 }
 */
-
+//Can use this to create trail.
 function makeTrail(i, j, a) {
 	if(a === 1) {
 		grid[i][j] = 1;

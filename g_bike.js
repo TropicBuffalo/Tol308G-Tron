@@ -86,6 +86,7 @@ Bike.prototype.update = function (du) {
 			*/
 	  }
 /*
+	//Collision stuff.
 	if (collide(nextX,nextY)){
 		window.alert("collision");
 	}
