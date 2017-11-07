@@ -86,7 +86,6 @@ Bike.prototype.update = function (du) {
   		    this.yVel *= -1;
   			*/
 	  }
-<<<<<<< HEAD
 /*
 	//Collision stuff.
 	if (collide(nextX,nextY)){
@@ -107,7 +106,7 @@ Bike.prototype.update = function (du) {
 		drawBrick(prevX,prevY,1);
 	}
 	  
-=======
+
     /*
     	//Collision stuff.
     	if (collide(nextX,nextY)){
@@ -118,7 +117,6 @@ Bike.prototype.update = function (du) {
 		    drawBrick(prevX, prevY, 1);
 	  }
 
->>>>>>> origin/master
     // Reset if we fall off the left or right edges
     // ...by more than some arbitrary `margin`
     //

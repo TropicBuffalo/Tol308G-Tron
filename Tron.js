@@ -97,12 +97,8 @@ function gatherInputs() {
 
 function updateSimulation(du) {
     g_bike1.update(du);
-<<<<<<< HEAD
 	g_bike2.update(du);
-	
-=======
-	  g_bike2.update(du);
->>>>>>> origin/master
+
 }
 
 
@@ -121,16 +117,10 @@ function updateSimulation(du) {
 // GAME-SPECIFIC RENDERING
 
 function renderSimulation(ctx) {
-<<<<<<< HEAD
+
 	createBricks();
 	g_bike1.render(ctx);
 	g_bike2.render(ctx);
-	
-=======
-	  g_bike1.render(ctx);
-	  g_bike2.render(ctx);
-
->>>>>>> origin/master
 }
 
 // Kick it off
