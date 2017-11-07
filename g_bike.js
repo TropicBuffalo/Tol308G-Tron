@@ -123,8 +123,8 @@ Bike.prototype.update = function (du) {
     var margin = 4 * this.radius;
 
 
-    this.cx += Math.floor(this.xVel * du);
-    this.cy += Math.floor(this.yVel * du);
+    this.cx += this.xVel;
+    this.cy += this.yVel;
 
   	//Núverandi hnit eru "pushuð" inní trailX og trailY.
   	//Ef annarhvor "Array-inn" verður lengri en trailLength:
