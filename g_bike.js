@@ -100,12 +100,12 @@ Bike.prototype.update = function (du) {
 	else if(this.player === 2) {
 		grid[brickX][brickY] = 2;
 	}
-	
-	
-	if(trailPaint(prevX,prevY)){
-		drawBrick(prevX,prevY,1);
-	}
-	  
+
+
+	// if(trailPaint(prevX,prevY)){
+	// 	drawBrick(prevX,prevY,1);
+	// }
+
 
     /*
     	//Collision stuff.
@@ -113,9 +113,9 @@ Bike.prototype.update = function (du) {
     		window.alert("collision");
     	}
     */
-	  if (trailPaint(prevX, prevY)) {
-		    drawBrick(prevX, prevY, 1);
-	  }
+	  // if (trailPaint(prevX, prevY)) {
+		//     drawBrick(prevX, prevY, 1);
+	  // }
 
     // Reset if we fall off the left or right edges
     // ...by more than some arbitrary `margin`
@@ -141,10 +141,20 @@ Bike.prototype.update = function (du) {
 };
 
 Bike.prototype.reset = function () {
-    this.cx = 100;
-    this.cy = 200;
-    this.xVel = 5;
-    this.yVel = 0;
+  if (this.player === 1 ) {
+      this.cx = 100;
+      this.cy = 100;
+  }
+
+  else if (this.player === 2) {
+      this.cx = 100;
+      this.cy = 300;
+  }
+
+  // this.cx = 10;
+  // this.cy = 10;
+  this.xVel = 5;
+  this.yVel = 0;
 };
 
 Bike.prototype.render = function (ctx) {

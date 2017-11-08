@@ -31,8 +31,10 @@ Lengd halans eru ákvörðuð af trailLength.
 var g_bike1 = new Bike({
     cx: 100,
     cy: 200,
-	color : "blue",
-	player : 1,
+    width: 5,
+    height: 5,
+	  color : "blue",
+	  player : 1,
 	/*
 	trailLength: 1000,
 	trailX : [],
@@ -56,8 +58,10 @@ var KEY_DownA = 40;
 var g_bike2 = new Bike({
     cx: 300,
     cy: 100,
-	color : "red",
-	player : 2,
+    width: 5,
+    height: 5,
+	  color : "red",
+	  player : 2,
 	/*
 	trailLength: 1000,
 	trailX : [],
@@ -97,8 +101,7 @@ function gatherInputs() {
 
 function updateSimulation(du) {
     g_bike1.update(du);
-	g_bike2.update(du);
-
+	  g_bike2.update(du);
 }
 
 
@@ -117,10 +120,9 @@ function updateSimulation(du) {
 // GAME-SPECIFIC RENDERING
 
 function renderSimulation(ctx) {
-
-	createBricks();
-	g_bike1.render(ctx);
-	g_bike2.render(ctx);
+    createBricks();
+	  g_bike1.render(ctx);
+    g_bike2.render(ctx);
 }
 
 // Kick it off
