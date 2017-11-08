@@ -44,9 +44,9 @@ function drawBrick(x, y, type){
 }
 
 //Collision stuff.
-function trailPaint(prevX,prevY){
-  	var brickX = Math.floor (prevX / GridWidth);
-  	var brickY = Math.floor (prevY / GridHeight);
+function collide(nextX,nextY){
+  	var brickX = Math.floor (nextX / GridWidth);
+  	var brickY = Math.floor (nextY / GridHeight);
   	if (grid[brickX][brickY]) {
         return true;
     }

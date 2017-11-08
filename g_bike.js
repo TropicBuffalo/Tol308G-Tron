@@ -16,8 +16,8 @@ Bike.prototype.update = function (du) {
     var prevY = this.cy;
 
     // Compute my provisional new position (barring collisions)
-    var nextX = prevX + this.xVel * du;
-    var nextY = prevY + this.yVel * du;
+    var nextX = prevX + this.xVel;
+    var nextY = prevY + this.yVel;
 
 	  //Movement for the bike
 	  //Left
@@ -54,8 +54,8 @@ Bike.prototype.update = function (du) {
     }
 
     // Bounce off left and right edges
-    if (nextX < 0 ||                 // left edge
-        nextX > 399) { // right edge
+    if (nextX < 5 ||                 // left edge
+        nextX > 395) { // right edge
     		/*
     		window.alert("Dead");
     		*/
@@ -69,8 +69,8 @@ Bike.prototype.update = function (du) {
     }
 
     // Bounce off top and bottom edges
-	  if (nextY < 0 ||
-        nextY > g_canvas.height) {
+	  if (nextY < 5 ||
+        nextY > 395) {
   			/*
   			window.alert("Dead");
   			*/
@@ -107,13 +107,11 @@ Bike.prototype.update = function (du) {
 	// 	drawBrick(prevX,prevY,1);
 	// }
 
-
-    /*
     	//Collision stuff.
     	if (collide(nextX,nextY)){
     		window.alert("collision");
     	}
-    */
+
 	  // if (trailPaint(prevX, prevY)) {
 		//     drawBrick(prevX, prevY, 1);
 	  // }
