@@ -55,7 +55,7 @@ Bike.prototype.update = function (du) {
 
     // Bounce off left and right edges
     if (nextX < 5 ||                 // left edge
-        nextX > 395) { // right edge
+        nextX > 394) { // right edge
     		/*
     		window.alert("Dead");
     		*/
@@ -70,7 +70,7 @@ Bike.prototype.update = function (du) {
 
     // Bounce off top and bottom edges
 	  if (nextY < 5 ||
-        nextY > 395) {
+        nextY > 394) {
   			/*
   			window.alert("Dead");
   			*/
