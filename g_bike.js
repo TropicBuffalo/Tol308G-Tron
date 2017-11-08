@@ -93,13 +93,14 @@ Bike.prototype.update = function (du) {
 	}
 */
     var brickX = Math.floor (prevX / 5.00);
-	var brickY = Math.floor (prevY / 5.00);
-	if(this.player === 1) {
-		grid[brickX][brickY] = 1;
-	}
-	else if(this.player === 2) {
-		grid[brickX][brickY] = 2;
-	}
+	  var brickY = Math.floor (prevY / 5.00);
+	  if (this.player === 1) {
+		    grid[brickX][brickY] = 1;
+	  }
+
+    else if (this.player === 2) {
+		    grid[brickX][brickY] = 2;
+	  }
 
 
 	// if(trailPaint(prevX,prevY)){
@@ -141,24 +142,24 @@ Bike.prototype.update = function (du) {
 };
 
 Bike.prototype.reset = function () {
-  if (this.player === 1 ) {
-      this.cx = 100;
-      this.cy = 100;
-  }
+    if (this.player === 1 ) {
+        this.cx = 100;
+        this.cy = 100;
+    }
 
-  else if (this.player === 2) {
-      this.cx = 100;
-      this.cy = 300;
-  }
+    else if (this.player === 2) {
+        this.cx = 100;
+        this.cy = 300;
+    }
 
-  // this.cx = 10;
-  // this.cy = 10;
-  this.xVel = 5;
-  this.yVel = 0;
+    // this.cx = 10;
+    // this.cy = 10;
+    this.xVel = 5;
+    this.yVel = 0;
 };
 
 Bike.prototype.render = function (ctx) {
-	var c = this.color;
+  	var c = this.color;
     fillBox(ctx, this.cx, this.cy, 5, 5, c);
 /*
 	  for (var i = 0; i < this.trailX.length; i++) {
