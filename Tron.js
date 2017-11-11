@@ -5,8 +5,9 @@
 var g_canvas = document.getElementById("myCanvas");
 var g_ctx = g_canvas.getContext("2d");
 g_ctx.font="Bold 20px Arial";
-	var timer = setInterval(function() { if(!g_isUpdatePaused) {
-    timer +=100;
+
+var timer = setInterval(function() { if (!g_isUpdatePaused) {
+    timer += 100;
   }
 }, 100);
 
@@ -39,8 +40,8 @@ var g_bike1 = new Bike({
     cy: 200,
     width: 5,
     height: 5,
-    	color : "blue",   
-	player : 1,
+    color : "blue",
+	  player : 1,
     xVel: 5,
     yVel: 0,
 	GO_LEFT   : KEY_A,
@@ -96,7 +97,7 @@ function gatherInputs() {
 
 function updateSimulation(du) {
     g_bike1.update(du);
-	g_bike2.update(du);
+	  g_bike2.update(du);
 }
 
 
@@ -116,9 +117,9 @@ function updateSimulation(du) {
 
 function renderSimulation(ctx) {
     createBricks();
-	g_bike1.render(ctx);
+	  g_bike1.render(ctx);
     g_bike2.render(ctx);
-	g_ctx.fillText("Score : " + timer, 20,630);
+	  g_ctx.fillText("Score : " + timer, 20, 630);
 }
 
 // Kick it off

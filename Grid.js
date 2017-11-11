@@ -12,14 +12,15 @@ for (var i = 0 ; i < canvasGridX; i++) {
         grid[i][j] = 0;
     }
 }
-//Changed numbers to fit a "scoreboard" on the bottom while keeping playable dimensions the ame.
-for(var i = 0; i < canvasGridX; i++) {
+//Changed numbers to fit a "scoreboard" on the bottom while
+//keeping playable dimensions the ame.
+for (var i = 0; i < canvasGridX; i++) {
 	grid[i][0] = 3;
-	grid[i][canvasGridY-11] = 3;
+	grid[i][canvasGridY - 11] = 3;
 }
-for(var i = 0; i < canvasGridY-10; i++){
+for (var i = 0; i < canvasGridY - 10; i++) {
 	grid[0][i] = 3;
-	grid[canvasGridX-1][i] = 3;
+	grid[canvasGridX - 1][i] = 3;
 }
 
 
@@ -34,11 +35,11 @@ function createBricks() {
 };
 
 //"Draws" the bricks.
-function drawBrick(x, y, type){
+function drawBrick(x, y, type) {
     switch (type) {
 			case 3:
       			g_ctx.fillStyle = '#39FF14';
-      			break;			
+      			break;
     		case 2:
       			//Color does nothing, just there for the type.
       			g_ctx.fillStyle = 'red';
@@ -54,16 +55,17 @@ function drawBrick(x, y, type){
 
     if (type) {
         g_ctx.fillRect(x * GridWidth, y * GridHeight, GridWidth, GridHeight);
-		g_ctx.strokeRect(x * GridWidth + 1, y * GridHeight + 1, GridWidth - 2, GridHeight - 2);
+		    g_ctx.strokeRect(x * GridWidth + 1, y * GridHeight + 1, GridWidth - 2, GridHeight - 2);
     }
 }
 
 //Collision stuff.
-function collide(nextX,nextY){
+function collide(nextX, nextY) {
   	var brickX = Math.floor (nextX / GridWidth);
   	var brickY = Math.floor (nextY / GridHeight);
   	if (grid[brickX][brickY]) {
         return true;
     }
+
     return false;
 }
