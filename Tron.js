@@ -5,7 +5,11 @@
 var g_canvas = document.getElementById("myCanvas");
 var g_ctx = g_canvas.getContext("2d");
 g_ctx.font="Bold 20px Arial";
-var timer = setInterval(function() { timer += 1;},1);
+	var timer = setInterval(function() { if(!g_isUpdatePaused) {
+    timer +=100;
+  }
+}, 100);
+//Byrjar á 1 í stað 0 svo setjum 0 í byrjun
 
 /*
 0        1         2         3         4         5         6         7         8         9
@@ -38,7 +42,6 @@ var g_bike1 = new Bike({
 	player : 1,
     xVel: 5,
     yVel: 0,
-
 	GO_LEFT   : KEY_A,
     GO_RIGHT : KEY_D,
 	GO_UP   : KEY_W,
