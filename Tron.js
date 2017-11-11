@@ -9,8 +9,9 @@ g_ctx.font="Bold 20px Arial";
     timer +=100;
   }
 }, 100);
-//Byrjar á 1 í stað 0 svo setjum 0 í byrjun
 
+//Byrjar á 1 í stað 0 svo setjum 0 í byrjun
+timer = 0;
 /*
 0        1         2         3         4         5         6         7         8         9
 123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
