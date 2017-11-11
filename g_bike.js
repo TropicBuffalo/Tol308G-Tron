@@ -54,56 +54,39 @@ Bike.prototype.update = function (du) {
     }
 
     //Collision with X axis
-    if (nextX < 5 || nextX > 394) {
+    if (nextX < 5 || nextX > g_canvas.length-6) {
 		this.reset();
 		//Reset the grid
-    	for (var i = 0 ; i < 80; i++) {
-    	    grid[i] = [];
-    		for (var j = 0; j < 80; j++) {
-				grid[i][j] = 0;
+    	for (var i = 0 ; i < canvasGridX; i++) {
+    		for (var j = 0; j < canvasGridY; j++) {
+				if (grid[i][j] === this.player)
+					grid[i][j] = 0;
             }
         }
-		for(var i = 0; i < 80; i++) {
-			grid[0][i] = 3;
-			grid[79][i] = 3;
-			grid[i][0] = 3;
-			grid[i][79] = 3;
-		}
     }
 	
 	//Collision with Y axis
-	if (nextY < 5 || nextY > 394) {
+	if (nextY < 5 || nextY > g_canvas.height-6) {
  		this.reset();
 		//Reset the grid
- 		for (var i = 0; i < 80; i++) {
- 		    grid[i] = [];
- 		    for (var j = 0; j < 80; j++) {
-			grid[i][j] = 0;
+ 		for (var i = 0; i < canvasGridX; i++) {
+ 		    for (var j = 0; j < canvasGridY; j++) {
+				if (grid[i][j] === this.player)
+					grid[i][j] = 0;
+					
             }
         }
-		for(var i = 0; i < 80; i++) {
-			grid[0][i] = 3;
-			grid[79][i] = 3;
-			grid[i][0] = 3;
-			grid[i][79] = 3;
-		}
 	}
 	//Collision with the trail, collide() is in Grid.js
 	if (collide(nextX,nextY)){
-    	this.reset;
+    	this.reset();
 		//Reset the grid
-		for (var i = 0; i < 80; i++) {
- 		    grid[i] = [];
- 		    for (var j = 0; j < 80; j++) {
-			grid[i][j] = 0;
+		for (var i = 0; i < canvasGridX; i++) {
+ 		    for (var j = 0; j < canvasGridY; j++) {
+				if (grid[i][j] === this.player)
+					grid[i][j] = 0;
             }
         }
-		for(var i = 0; i < 80; i++) {
-			grid[0][i] = 3;
-			grid[79][i] = 3;
-			grid[i][0] = 3;
-			grid[i][79] = 3;
-		}
     }
 	
 	//Paint the trails of the players
