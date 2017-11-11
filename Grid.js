@@ -1,21 +1,25 @@
 var GridHeight = 5;
 var GridWidth = 5;
+var canvasGridX = g_canvas.width/5;
+var canvasGridY = g_canvas.height/5;
 
 //Makes the array for the grid.
 
 var grid = [];
 
-for (var i = 0 ; i < 80; i++) {
+for (var i = 0 ; i < canvasGridX; i++) {
     grid[i] = [];
-    for (var j = 0; j < 80; j++) {
+    for (var j = 0; j < canvasGridY; j++) {
         grid[i][j] = 0;
     }
 }
-for(var i = 0; i < 80; i++) {
-	grid[0][i] = 3;
-	grid[79][i] = 3;
+for(var i = 0; i < canvasGridX; i++) {
 	grid[i][0] = 3;
-	grid[i][79] = 3;
+	grid[i][canvasGridY-1] = 3;
+}
+for(var i = 0; i < canvasGridY; i++){
+	grid[0][i] = 3;
+	grid[canvasGridX-1][i] = 3;
 }
 
 //Creates the bricks.
