@@ -21,38 +21,47 @@ Bike.prototype.update = function (du) {
 
 	  //Movement for the bike
 	  //Left
-    if (g_keys[this.GO_LEFT]) {
-		    if (this.xVel > 0) return;
-		    else {
-			      this.xVel = -5;
-			      this.yVel = 0;
-		    }
-    }
+	if (g_keys[this.GO_LEFT] && this.xVel === 0 
+		&& g_keys[this.GO_UP] === false && g_keys[this.GO_DOWN] === false) {
+			
+		if (this.xVel > 0) return;
+		if (this.xVel === 0) {
+			this.xVel = -5;
+			this.yVel = 0;
+		}
+	}
 	  //Right
-	  else if (g_keys[this.GO_RIGHT]) {
-		    if (this.xVel < 0) return;
-		    else {
-			      this.xVel = 5;
-			      this.yVel = 0;
-		    }
-    }
-	  //Up
-	  else if (g_keys[this.GO_UP]) {
-		    if (this.yVel > 0) return;
-		    else {
-			      this.xVel = 0;
-            this.yVel = -5;
-		    }
-    }
+	else if (g_keys[this.GO_RIGHT] && this. xVel === 0 
+			 && g_keys[this.GO_UP] === false && g_keys[this.GO_DOWN] === false) {
+		
+		if (this.xVel < 0) return;
+		if (this.xVel === 0) {
+			this.xVel = 5;
+			this.yVel = 0;
+		}
+	}
+    //Up
+	else if (g_keys[this.GO_UP] && this.yVel === 0 
+			 && g_keys[this.GO_RIGHT] === false && g_keys[this.GO_LEFT] === false) {
+	    
+		if (this.yVel > 0) return;
+	    if (this.yVel === 0){
+			this.xVel = 0;
+			this.yVel = -5;
+	    }
+	}
 	  //Down
-	  else if (g_keys[this.GO_DOWN]) {
-		    if (this.yVel < 0) return;
-		    else {
-			      this.xVel = 0;
-            this.yVel = 5;
-		    }
-    }
-
+	else if (g_keys[this.GO_DOWN] && this.yVel === 0 
+			 && g_keys[this.GO_RIGHT] === false && g_keys[this.GO_LEFT] === false) {
+	    
+		if (this.yVel < 0) return;
+	    if (this.yVel === 0) {
+		    this.xVel = 0;
+			this.yVel = 5;
+	    }
+	}
+	
+	
     //Collision with X axis
     if (nextX < 5 || nextX > g_canvas.length-6) {
 		this.reset();
