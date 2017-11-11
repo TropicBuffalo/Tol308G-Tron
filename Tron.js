@@ -91,7 +91,7 @@ function gatherInputs() {
 
 function updateSimulation(du) {
     g_bike1.update(du);
-	  g_bike2.update(du);
+	g_bike2.update(du);
 }
 
 
@@ -111,7 +111,7 @@ function updateSimulation(du) {
 
 function renderSimulation(ctx) {
     createBricks();
-	  g_bike1.render(ctx);
+	g_bike1.render(ctx);
     g_bike2.render(ctx);
 }
 
