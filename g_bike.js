@@ -134,7 +134,7 @@ Bike.prototype.render = function (ctx) {
 
 Bike.prototype.AI = function () {
     //Collision with x-axis
-    if (nextY < 5 || nextY > g_canvas.height - 6) {
+    if (nextX < 5 || nextX > g_canvas.length - 6) {
         this.xVel = 0;
         this.yVel = 5;
     }
