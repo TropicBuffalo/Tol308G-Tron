@@ -2,7 +2,6 @@ var GridHeight = 5;
 var GridWidth = 5;
 var canvasGridX = g_canvas.width/5;
 var canvasGridY = g_canvas.height/5;
-
 //Makes the array for the grid.
 
 var grid = [];
@@ -13,14 +12,17 @@ for (var i = 0 ; i < canvasGridX; i++) {
         grid[i][j] = 0;
     }
 }
+//Changed numbers to fit a "scoreboard" on the bottom while keeping playable dimensions the ame.
 for(var i = 0; i < canvasGridX; i++) {
 	grid[i][0] = 3;
-	grid[i][canvasGridY-1] = 3;
+	grid[i][canvasGridY-11] = 3;
 }
-for(var i = 0; i < canvasGridY; i++){
+for(var i = 0; i < canvasGridY-10; i++){
 	grid[0][i] = 3;
 	grid[canvasGridX-1][i] = 3;
 }
+
+
 
 //Creates the bricks.
 function createBricks() {
