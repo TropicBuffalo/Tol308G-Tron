@@ -129,3 +129,18 @@ Bike.prototype.render = function (ctx) {
   	var c = this.color;
     fillBox(ctx, this.cx, this.cy, 5, 5, c);
 }
+
+//Function for AI
+
+Bike.prototype.AI = function () {
+    //Collision with x-axis
+    if (nextY < 5 || nextY > g_canvas.height - 6) {
+        this.xVel = 0;
+        this.yVel = 5;
+    }
+    //Collision with y-axis
+    if (nextY < 5 || nextY > g_canvas.height - 6) {
+        this.xVel = 5;
+        this.yVel = 0;
+    }
+}
