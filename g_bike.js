@@ -77,13 +77,13 @@ Bike.prototype.update = function (du) {
 	}
 	//Collision with the trail, collide() is in Grid.js
 	if (collide(nextX,nextY)){
-    	
+    	this.reset();
 		//Reset the grid
 		for (var i = 0; i < canvasGridX; i++) {
  		    for (var j = 0; j < canvasGridY; j++) {
 				if (grid[i][j] === this.player)
 					grid[i][j] = 0;
-            }this.reset();
+            }
         }
 		
     }
@@ -112,6 +112,9 @@ Bike.prototype.reset = function () {
     if (this.player === 1 ) {
         this.cx = 100;
         this.cy = 100;
+		alert("score = " + timer);
+		timer = 0;
+		
     }
 
     else if (this.player === 2) {

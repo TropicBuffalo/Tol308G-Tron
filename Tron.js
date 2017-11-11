@@ -4,7 +4,8 @@
 
 var g_canvas = document.getElementById("myCanvas");
 var g_ctx = g_canvas.getContext("2d");
-
+g_ctx.font="Bold 20px Arial";
+var timer = setInterval(function() { timer += 1;},1);
 
 /*
 0        1         2         3         4         5         6         7         8         9
@@ -113,6 +114,7 @@ function renderSimulation(ctx) {
     createBricks();
 	g_bike1.render(ctx);
     g_bike2.render(ctx);
+	g_ctx.fillText("Score : " + timer, 20,630);
 }
 
 // Kick it off
