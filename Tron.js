@@ -33,13 +33,8 @@ var g_bike1 = new Bike({
     cy: 200,
     width: 5,
     height: 5,
-	  color : "blue",
-	  player : 1,
-  	/*
-  	trailLength: 1000,
-  	trailX : [],
-  	trailY : [],
-  	*/
+    	color : "blue",   
+	player : 1,
     xVel: 5,
     yVel: 0,
 
@@ -62,11 +57,6 @@ var g_bike2 = new Bike({
     height: 5,
 	  color : "red",
 	  player : 2,
-  	/*
-  	trailLength: 1000,
-  	trailX : [],
-  	trailY : [],
-  	*/
     xVel: -5,
     yVel: 0,
 
