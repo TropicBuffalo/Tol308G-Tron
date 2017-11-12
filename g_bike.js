@@ -21,35 +21,45 @@ Bike.prototype.update = function (du) {
 
 	  //Movement for the bike
 	  //Left
-	if (g_keys[this.GO_LEFT]) {
-		  if (this.xVel === 0) {
-			    this.xVel = -5;
-			    this.yVel = 0;
-		  }
+	//Getur bara notað keyboard input ef AI er false  
+	if(this.AI != true) {  
+		if (g_keys[this.GO_LEFT]) {
+			  if (this.xVel === 0) {
+					this.xVel = -5;
+					this.yVel = 0;
+			  }
+		}
+		  //Right
+		else if (g_keys[this.GO_RIGHT]) {
+			  if (this.xVel === 0) {
+					this.xVel = 5;
+					this.yVel = 0;
+			  }
+		}
+		//Up
+		else if (g_keys[this.GO_UP]) {
+			if (this.yVel === 0){
+					this.xVel = 0;
+					this.yVel = -5;
+			}
+		}
+		  //Down
+		else if (g_keys[this.GO_DOWN]) {
+			if (this.yVel === 0) {
+				this.xVel = 0;
+				this.yVel = 5;
+			}
+		}
 	}
-	  //Right
-	else if (g_keys[this.GO_RIGHT]) {
-		  if (this.xVel === 0) {
-			    this.xVel = 5;
-			    this.yVel = 0;
-		  }
+	
+	//Byrjun á AI
+	if(this.AI === true) {
+		if(this.cy > 500 && this.cx < 50) {
+			this.xVel = 0;
+			this.yVel = -5;
+		}
 	}
-    //Up
-	else if (g_keys[this.GO_UP]) {
-	    if (this.yVel === 0){
-			    this.xVel = 0;
-			    this.yVel = -5;
-	    }
-	}
-	  //Down
-	else if (g_keys[this.GO_DOWN]) {
-	    if (this.yVel === 0) {
-		      this.xVel = 0;
-			    this.yVel = 5;
-	    }
-	}
-
-
+	
   //Collision with X axis
   if (nextX < 5 || nextX > g_canvas.length - 6) {
 	    this.reset();
@@ -110,19 +120,23 @@ Bike.prototype.update = function (du) {
 
 Bike.prototype.reset = function () {
     if (this.player === 1 ) {
-        this.cx = 100;
-        this.cy = 100;
-		alert("score = " + timer);
+        this.cx = 50;
+        this.cy = 50;
+		this.xVel = 5;
+		this.yVel = 0;
+		//alert("score = " + timer);
 		timer = 0;
 
     }
 
     else if (this.player === 2) {
-        this.cx = 100;
-        this.cy = 300;
+        this.cx = 550;
+        this.cy = 550;
+		this.xVel = -5;
+		this.yVel = 0;
     }
-    this.xVel = 5;
-    this.yVel = 0;
+    
+ 
 };
 
 Bike.prototype.render = function (ctx) {

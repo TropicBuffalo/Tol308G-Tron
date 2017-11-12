@@ -29,19 +29,19 @@ var KEY_W = 'W'.charCodeAt(0);
 var KEY_S = 'S'.charCodeAt(0);
 
 /*
-Trail er halinn sem kemur á eftir fyrsta "sprite-inu".
-Hér eru trailX og trailY Array sem halda utan um X- og Y-hnit halans.
-Lengd halans eru ákvörðuð af trailLength.
+Bætti við AI : true/false
+
 */
 
 //Player 1 bike
 var g_bike1 = new Bike({
-    cx: 100,
-    cy: 200,
+    cx: 50,
+    cy: 50,
     width: 5,
     height: 5,
     color : "blue",
-	  player : 1,
+	player : 1,
+	AI : false,
     xVel: 5,
     yVel: 0,
 	GO_LEFT   : KEY_A,
@@ -57,12 +57,13 @@ var KEY_UpA = 38;
 var KEY_DownA = 40;
 
 var g_bike2 = new Bike({
-    cx: 300,
-    cy: 100,
+    cx: 550,
+    cy: 550,
     width: 5,
     height: 5,
-	  color : "red",
-	  player : 2,
+	color : "red",
+	player : 2,
+	AI : true,
     xVel: -5,
     yVel: 0,
 
