@@ -7,7 +7,8 @@ var g_ctx = g_canvas.getContext("2d");
 g_ctx.font="Bold 20px Arial";
 
 var audio = new Audio("Tron_start.wav")
-
+audio.muted = true;
+audio1.muted = true;
 audio.currentTime = 0;
 audio.play();
 
@@ -15,6 +16,19 @@ var timer = setInterval(function() { if (!g_isUpdatePaused) {
     timer += 100;
   }
 }, 100);
+
+//Radio button kallar á þetta til að mute-a / unmute-a.
+function mutesound() {
+	if(document.getElementById("1").checked === true) {
+		audio.muted = false;
+		audio1.muted = false;
+	}
+	else if(document.getElementById("2").checked === true) {
+		audio.muted = true;
+		audio1.muted = true;
+	}
+}
+
 
 //Byrjar á 1 í stað 0 svo setjum 0 í byrjun
 timer = 0;
