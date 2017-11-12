@@ -10,6 +10,8 @@ function Bike(descr) {
     }
 }
 
+var audio1 = new Audio("Tron_Death.wav");
+
 Bike.prototype.update = function (du) {
     // Remember my previous position
     var prevX = this.cx;
@@ -124,7 +126,8 @@ Bike.prototype.reset = function () {
         this.cy = 50;
 		this.xVel = 5;
 		this.yVel = 0;
-		//alert("score = " + timer);
+		audio1.play();
+		alert("You have died. \nYour score was = " + timer);
 		timer = 0;
 
     }

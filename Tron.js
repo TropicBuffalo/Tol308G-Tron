@@ -6,6 +6,11 @@ var g_canvas = document.getElementById("myCanvas");
 var g_ctx = g_canvas.getContext("2d");
 g_ctx.font="Bold 20px Arial";
 
+var audio = new Audio("Tron_start.wav")
+
+audio.currentTime = 0;
+audio.play();
+
 var timer = setInterval(function() { if (!g_isUpdatePaused) {
     timer += 100;
   }
