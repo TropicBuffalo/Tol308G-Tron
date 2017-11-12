@@ -23,8 +23,8 @@ Bike.prototype.update = function (du) {
 
 	  //Movement for the bike
 	  //Left
-	//Getur bara notað keyboard input ef AI er false  
-	if(this.AI != true) {  
+	//Getur bara notað keyboard input ef AI er false
+	if(this.AI != true) {
 		if (g_keys[this.GO_LEFT]) {
 			  if (this.xVel === 0) {
 					this.xVel = -5;
@@ -53,15 +53,30 @@ Bike.prototype.update = function (du) {
 			}
 		}
 	}
-	
+
 	//Byrjun á AI
-	if(this.AI === true) {
-		if(this.cy > 500 && this.cx < 50) {
-			this.xVel = 0;
-			this.yVel = -5;
+	if (this.AI === true) {
+      if(this.cy > 500 && this.cx < 50) {
+			    this.xVel = 0;
+			    this.yVel = -5;
 		}
+
+    else if (this.cy < 50 && this.cx < 50) {
+        this.xVel = 5;
+        this.yVel = 0;
+    }
+
+    else if (this.cy < 50 && this.cx > 550) {
+        this.xVel = 0;
+        this.yVel = 5;
+    }
+
+    else if (this.cy > 500 && this.cx > 550) {
+        this.xVel = -5;
+        this.yVel = 0;
+    }
 	}
-	
+
   //Collision with X axis
   if (nextX < 5 || nextX > g_canvas.length - 6) {
 	    this.reset();
@@ -138,8 +153,8 @@ Bike.prototype.reset = function () {
 		this.xVel = -5;
 		this.yVel = 0;
     }
-    
- 
+
+
 };
 
 Bike.prototype.render = function (ctx) {
