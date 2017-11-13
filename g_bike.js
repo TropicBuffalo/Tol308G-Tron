@@ -137,8 +137,8 @@ Bike.prototype.reset = function () {
 };
 
 Bike.prototype.render = function (ctx) {
-  	var c = this.color;
-    fillBox(ctx, this.cx, this.cy, 5, 5, c);
+  	//var c = this.color;
+    fillBox(ctx, this.cx, this.cy, 5, 5, this.color);
 }
 
 //Function for AI
