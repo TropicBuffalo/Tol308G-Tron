@@ -5,6 +5,7 @@
 var g_canvas = document.getElementById("myCanvas");
 var g_ctx = g_canvas.getContext("2d");
 g_ctx.font="Bold 20px Arial";
+var button1 = document.getElementById("button1");
 
 var audio = new Audio("Tron_start.wav")
 audio.muted = true;
@@ -12,9 +13,16 @@ audio1.muted = true;
 audio.currentTime = 0;
 audio.play();
 
-var timer = setInterval(function() { if (!g_isUpdatePaused) {
-    timer += 100;
-  }
+function startup() {
+	SplashScreen.style.display = "none";
+	g_canvas.style.display = "block";
+	g_isUpdatePaused = false;
+}
+
+var timer = setInterval(function() { 
+	if (!g_isUpdatePaused) {
+		timer += 100;
+	}
 }, 100);
 
 //Radio button kallar á þetta til að mute-a / unmute-a.
