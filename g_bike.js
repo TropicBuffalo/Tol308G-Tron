@@ -24,7 +24,7 @@ Bike.prototype.update = function (du) {
 	  //Movement for the bike
 	  //Left
 	//Getur bara notað keyboard input ef AI er false
-	if(this.AI != true) {
+	if(this.AI === false) {
 		if (g_keys[this.GO_LEFT]) {
 			  if (this.xVel === 0) {
 					this.xVel = -5;

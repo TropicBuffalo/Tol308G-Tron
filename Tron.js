@@ -6,7 +6,7 @@ var g_canvas = document.getElementById("myCanvas");
 var g_ctx = g_canvas.getContext("2d");
 g_ctx.font="Bold 20px Arial";
 
-var timer = setInterval(function() { 
+var timer = setInterval(function() {
 	if (!g_isUpdatePaused) {
 		timer += 100;
 	}
@@ -25,12 +25,22 @@ audio.play();
 //Radio button kallar á þetta til að mute-a / unmute-a.
 function mutesound() {
 	if(document.getElementById("1").checked === true) {
+		audio.muted = true;
+		audio1.muted = true;
+	}
+	else if(document.getElementById("2").checked === true) {
 		audio.muted = false;
 		audio1.muted = false;
 	}
-	else if(document.getElementById("2").checked === true) {
-		audio.muted = true;
-		audio1.muted = true;
+}
+
+function AIon() {
+	if (document.getElementById("3").checked === true) {
+			g_bike2.AI = true;
+	}
+	else if (document.getElementById("4").checked === true) {
+			g_bike2.AI = false;
+
 	}
 }
 
