@@ -53,7 +53,7 @@ function update(dt) {
 var KEY_PAUSE = 'P'.charCodeAt(0);
 var KEY_STEP  = 'O'.charCodeAt(0);
 
-var g_isUpdatePaused = true;
+var g_isUpdatePaused = false;
 
 function shouldSkipUpdate() {
     if (eatKey(KEY_PAUSE)) {

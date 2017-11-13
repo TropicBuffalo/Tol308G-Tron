@@ -5,25 +5,22 @@
 var g_canvas = document.getElementById("myCanvas");
 var g_ctx = g_canvas.getContext("2d");
 g_ctx.font="Bold 20px Arial";
-var button1 = document.getElementById("button1");
-
-var audio = new Audio("Tron_start.wav")
-audio.muted = true;
-audio1.muted = true;
-audio.currentTime = 0;
-audio.play();
-
-function startup() {
-	SplashScreen.style.display = "none";
-	g_canvas.style.display = "block";
-	g_isUpdatePaused = false;
-}
 
 var timer = setInterval(function() { 
 	if (!g_isUpdatePaused) {
 		timer += 100;
 	}
 }, 100);
+
+//Byrjar á 1 í stað 0 svo setjum 0 í byrjun
+timer = 0;
+
+//Audio related things
+var audio = new Audio("Tron_start.wav")
+audio.muted = true;
+audio1.muted = true;
+audio.currentTime = 0;
+audio.play();
 
 //Radio button kallar á þetta til að mute-a / unmute-a.
 function mutesound() {
@@ -36,10 +33,90 @@ function mutesound() {
 		audio1.muted = true;
 	}
 }
+// START OF THE MAIN SCREEN
+var mouse;
+var startScreen;
 
+function beginLoop() {
+  var frameId = 0;
+  var lastFrame = Date.now();
 
-//Byrjar á 1 í stað 0 svo setjum 0 í byrjun
-timer = 0;
+  function loop() {
+    var thisFrame = Date.now();
+    var elapsed = thisFrame - lastFrame;
+    frameId = window.requestAnimationFrame(loop);
+    startScreen.update(elapsed);
+    startScreen.draw(g_ctx);
+    lastFrame = thisFrame;
+  }
+
+  loop();
+}
+
+mouse = (function (target) {
+  var isButtonDown = false;
+  target.addEventListener('mousedown', function () {
+    isButtonDown = true;
+  });
+  target.addEventListener('mouseup', function () {
+    isButtonDown = false;
+  });
+
+  return {
+    isButtonDown: function () {
+      return isButtonDown;
+    }
+  };
+}(document));
+
+startScreen = (function (input) {
+  var hue = 0;
+  var direction = 1;
+  var transitioning = false;
+  var wasButtonDown = false;
+  var title = 'Tron';
+
+  function centerText(ctx, text, y) {
+    var measurement = ctx.measureText(text);
+    var x = (ctx.canvas.width - measurement.width) / 2;
+    ctx.fillText(text, x, y);
+  }
+
+  function draw(ctx, elapsed) {
+
+    var y = ctx.canvas.height / 2;
+    var color = 'rgb(0,' + hue + ',0)';
+
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    ctx.fillStyle = '#39FF14';
+    ctx.font = '48px monospace';
+    centerText(ctx, title, y);
+
+    ctx.fillStyle = color;
+    ctx.font = '24px monospace';
+    centerText(ctx, 'click to begin', y + 30);
+  }
+
+  function update() {
+    hue += 1 * direction;
+    if (hue > 255) direction = -1;
+    if (hue < 1) direction = 1;
+    var isButtonDown = input.isButtonDown();
+    var mouseJustClicked = !isButtonDown && wasButtonDown;
+
+    if (mouseJustClicked && !transitioning) {
+      transitioning = true;
+      g_main.init();
+    }
+    wasButtonDown = isButtonDown;
+  }
+  return {
+    draw: draw,
+    update: update
+  };
+}(mouse));
+
+// END OF THE MAIN SCREEN
 /*
 0        1         2         3         4         5         6         7         8         9
 123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
@@ -151,4 +228,4 @@ function renderSimulation(ctx) {
 }
 
 // Kick it off
-g_main.init();
+beginLoop();
