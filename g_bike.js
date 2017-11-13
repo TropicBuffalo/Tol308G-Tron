@@ -56,26 +56,8 @@ Bike.prototype.update = function (du) {
 
   	//Byrjun á AI
   	if (this.AI === true) {
-        if(this.cy > 500 && this.cx < 50) {
-  			    this.xVel = 0;
-  			    this.yVel = -5;
-  		  }
-
-        else if (this.cy < 50 && this.cx < 50) {
-            this.xVel = 5;
-            this.yVel = 0;
-        }
-
-        else if (this.cy < 50 && this.cx > 550) {
-            this.xVel = 0;
-            this.yVel = 5;
-        }
-
-        else if (this.cy > 500 && this.cx > 550) {
-            this.xVel = -5;
-            this.yVel = 0;
-        }
-  	}
+        this.ai();
+    }
 
     //Collision with X axis
     if (nextX < 5 || nextX > g_canvas.length - 6) {
@@ -160,15 +142,25 @@ Bike.prototype.render = function (ctx) {
 }
 
 //Function for AI
-Bike.prototype.AI = function () {
+Bike.prototype.ai = function () {
     //Collision with x-axis
-    if (nextX < 5 || nextX > g_canvas.length - 6) {
+    if(this.cy > 500 && this.cx < 50) {
+        this.xVel = 0;
+        this.yVel = -5;
+    }
+
+    else if (this.cy < 50 && this.cx < 50) {
+        this.xVel = 5;
+        this.yVel = 0;
+    }
+
+    else if (this.cy < 50 && this.cx > 550) {
         this.xVel = 0;
         this.yVel = 5;
     }
-    //Collision with y-axis
-    if (nextY < 5 || nextY > g_canvas.height - 6) {
-        this.xVel = 5;
+
+    else if (this.cy > 500 && this.cx > 550) {
+        this.xVel = -5;
         this.yVel = 0;
     }
 }
