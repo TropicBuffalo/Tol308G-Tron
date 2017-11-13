@@ -156,25 +156,25 @@ Bike.prototype.ai = function () {
 
     if (collide(nextnextX, nextnextY)) {
 
-    //Collision with x-axis
-    if (this.cy > 500 && this.cx < 50) {
-        this.xVel = 0;
-        this.yVel = -5;
-    }
+        //Collision with x-axis
+        if (this.cy > 500 && this.cx < 50) {
+            this.xVel = 0;
+            this.yVel = -5;
+        }
 
-    else if (this.cy < 50 && this.cx < 50) {
-        this.xVel = 5;
-        this.yVel = 0;
-    }
+        else if (this.cy < 50 && this.cx < 50) {
+            this.xVel = 5;
+            this.yVel = 0;
+        }
 
-    else if (this.cy < 50 && this.cx > 550) {
-        this.xVel = 0;
-        this.yVel = 5;
-    }
+        else if (this.cy < 50 && this.cx > 550) {
+            this.xVel = 0;
+            this.yVel = 5;
+        }
 
-    else if (this.cy > 500 && this.cx > 550) {
-        this.xVel = -5;
-        this.yVel = 0;
-    }
+        else if (this.cy > 500 && this.cx > 550) {
+            this.xVel = -5;
+            this.yVel = 0;
+        }
   }
 }
