@@ -27,7 +27,7 @@ mouse = (function (target) {
       return isButtonDown;
     }
   };
-}(document));
+}(g_canvas));
 
 // Inspects, and then clears, a key's state
 //
