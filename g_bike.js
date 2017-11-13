@@ -143,6 +143,19 @@ Bike.prototype.render = function (ctx) {
 
 //Function for AI
 Bike.prototype.ai = function () {
+
+    var prevX = this.cx;
+    var prevY = this.cy;
+
+    // Compute my provisional new position (barring collisions)
+    var nextX = prevX + this.xVel;
+    var nextY = prevY + this.yVel;
+
+    var nextnextX = nextX + this.xVel;
+    var nextnextY = nextY + this.yVel;
+
+    if (collide(nextnextX, nextnextY)) {
+
     //Collision with x-axis
     if (this.cy > 500 && this.cx < 50) {
         this.xVel = 0;
@@ -163,4 +176,5 @@ Bike.prototype.ai = function () {
         this.xVel = -5;
         this.yVel = 0;
     }
+  }
 }
