@@ -3,6 +3,7 @@
 // =================
 
 var g_keys = [];
+var mouse;
 
 function handleKeydown(evt) {
     g_keys[evt.keyCode] = true;
@@ -11,6 +12,22 @@ function handleKeydown(evt) {
 function handleKeyup(evt) {
     g_keys[evt.keyCode] = false;
 }
+
+mouse = (function (target) {
+  var isButtonDown = false;
+  target.addEventListener('mousedown', function () {
+    isButtonDown = true;
+  });
+  target.addEventListener('mouseup', function () {
+    isButtonDown = false;
+  });
+
+  return {
+    isButtonDown: function () {
+      return isButtonDown;
+    }
+  };
+}(document));
 
 // Inspects, and then clears, a key's state
 //
