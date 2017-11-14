@@ -151,8 +151,8 @@ Bike.prototype.ai = function () {
   	var Y = Math.floor (prevY / 5.00);
     // Compute my provisional new position (barring collisions)
 	
-    var nextX = prevX + this.xVel;
-    var nextY = prevY + this.yVel;
+    var nextX = prevX + this.xVel * 2;
+    var nextY = prevY + this.yVel * 2;
 	
 	if(collide(nextX, nextY)) {
 		//If the AI is going LEFT and hits collision ...
@@ -166,42 +166,30 @@ Bike.prototype.ai = function () {
 		
 		//If the AI is going DOWN and hits collision ...
 		if(this.yVel === 5) {
-			//...It will go DOWN if it can
-			if(grid[X][Y+1] === 0) {
-				this.xVel = 0;
-				this.yVel = 5;
-			}
+			
 			//...it will go RIGHT if it can
-			else if(grid[X+1][Y] === 0) {
+			if(grid[X+1][Y] === 0) {
 				this.xVel = 5;
 				this.yVel = 0;
 			}
 		}
 		//If the AI is going RIGHT and hits collision ...
 		if(this.xVel === 5){
-			//...It will go DOWN if it can
-			if(grid[X][Y+1] === 0) {
-				this.xVel = 0;
-				this.yVel = 5;
-			}
 			//...it will go UP if it can
-			else if(grid[X][Y-1] === 0) {
+			if(grid[X][Y-1] === 0) {
 				this.xVel = 0;
 				this.yVel = -5;
 			}
+			
 		}
 		//If the AI is going UP and hits collision ...
 		if(this.yVel === -5){
-			//...It will go DOWN if it can
-			if(grid[X][Y+1] === 0) {
-				this.xVel = 0;
-				this.yVel = 5;
-			}
 			//...it will go LEFT if it can
-			else if(grid[X-1][Y] === 0) {
+			if(grid[X-1][Y] === 0) {
 				this.xVel = -5;
 				this.yVel = 0;
 			}
+			
 		}
 	}
 	
