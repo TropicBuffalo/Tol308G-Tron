@@ -65,7 +65,7 @@ Bike.prototype.update = function (du) {
   	    //Reset the grid
     	  for (var i = 0 ; i < canvasGridX; i++) {
     		    for (var j = 0; j < canvasGridY; j++) {
-  			        if (grid[i][j] === this.player)
+  			        if (grid[i][j] !== 3)
   				          grid[i][j] = 0;
             }
         }
@@ -77,7 +77,7 @@ Bike.prototype.update = function (du) {
   		  //Reset the grid
    		  for (var i = 0; i < canvasGridX; i++) {
    		      for (var j = 0; j < canvasGridY; j++) {
-  				      if (grid[i][j] === this.player)
+  				      if (grid[i][j] !== 3)
   					        grid[i][j] = 0;
 
             }
@@ -90,7 +90,7 @@ Bike.prototype.update = function (du) {
   		  //Reset the grid
   		  for (var i = 0; i < canvasGridX; i++) {
    		      for (var j = 0; j < canvasGridY; j++) {
-  				      if (grid[i][j] === this.player)
+  				      if (grid[i][j] !== 3)
   					        grid[i][j] = 0;
             }
         }
