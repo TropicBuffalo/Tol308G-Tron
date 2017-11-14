@@ -156,8 +156,11 @@ Bike.prototype.ai = function () {
 		if(this.xVel === -5) {
 			//...It will go DOWN if it can
 			if(grid[X][Y+1] === 0) {
-				this.xVel = 0;
-				this.yVel = 5;
+				a = Math.random();
+				if (a < 0.90) {
+					this.xVel = 0;
+					this.yVel = 5;
+				}
 			}
 		}
 		
@@ -166,25 +169,33 @@ Bike.prototype.ai = function () {
 			
 			//...it will go RIGHT if it can
 			if(grid[X+1][Y] === 0) {
-				this.xVel = 5;
-				this.yVel = 0;
+				a = Math.random();
+				if (a < 0.90) {
+					this.xVel = 5;
+					this.yVel = 0;
+				}
 			}
 		}
 		//If the AI is going RIGHT and hits collision ...
 		if(this.xVel === 5){
 			//...it will go UP if it can
 			if(grid[X][Y-1] === 0) {
-				this.xVel = 0;
-				this.yVel = -5;
+				a = Math.random();
+				if (a < 0.90) {
+					this.xVel = 0;
+					this.yVel = -5;
+				}
 			}
-			
 		}
 		//If the AI is going UP and hits collision ...
 		if(this.yVel === -5){
 			//...it will go LEFT if it can
 			if(grid[X-1][Y] === 0) {
-				this.xVel = -5;
-				this.yVel = 0;
+				a = Math.random();
+				if (a < 0.90) {
+					this.xVel = -5;
+					this.yVel = 0;
+				}
 			}
 			
 		}
