@@ -149,19 +149,21 @@ Bike.prototype.ai = function () {
   	var Y = Math.floor (prevY / 5.00);
     // Compute my provisional new position (barring collisions)
 	
-    var nextX = prevX + this.xVel * 2;
-    var nextY = prevY + this.yVel * 2;
+    var nextnextX = prevX + this.xVel * 2;
+    var nextnextY = prevY + this.yVel * 2;
+	var nextX = prevX + this.xVel*1.5;
+    var nextY = prevY + this.yVel*1.5;
 
 	
 	//What to do if collition
-	if(collide(nextX, nextY)) {
+	if(collide(nextX, nextY) || collide(nextnextX, nextnextY )) {
 		console.log("collition");
 		//If the AI is going LEFT and hits collision ...
 		if(this.xVel === -5) {
 			//...It will go DOWN if it can
 
-			if(grid[X][Y+5] === 0) {
-				a = Math.random();
+			if(grid[X][Y+1] === 0) {
+				//a = Math.random();
 				//if (a < 0.90) {
 					this.xVel = 0;
 					this.yVel = 5;
@@ -176,14 +178,14 @@ Bike.prototype.ai = function () {
 		//If the AI is going DOWN and hits collision ...
 		else if(this.yVel === 5) {
 			//...it will go RIGHT if it can
-			if(grid[X+5][Y] === 0) {
-				a = Math.random();
+			if(grid[X+1][Y] === 0) {
+				//a = Math.random();
 				//if (a < 0.90) {
 					this.xVel = 5;
 					this.yVel = 0;
 				//}
 			}
-			else if (grid[X-5][Y]===0){
+			else if (grid[X-1][Y]===0){
 					this.xVel = -5;
 					this.yVel = 0;
 			}
@@ -191,14 +193,14 @@ Bike.prototype.ai = function () {
 		//If the AI is going RIGHT and hits collision ...
 		else if(this.xVel === 5){
 			//...it will go UP if it can
-			if(grid[X][Y-5] === 0) {
-				a = Math.random();
+			if(grid[X][Y-1] === 0) {
+				//a = Math.random();
 				//if (a < 0.90) {
 					this.xVel = 0;
 					this.yVel = -5;
 				//}
 			}
-			else if (grid[X][Y+5]===0){
+			else if (grid[X][Y+1]===0){
 					this.xVel = 0;
 					this.yVel = 5;
 			}
@@ -206,14 +208,14 @@ Bike.prototype.ai = function () {
 		//If the AI is going UP and hits collision ...
 		else if(this.yVel === -5){
 			//...it will go LEFT if it can
-			if(grid[X-5][Y] === 0) {
-				a = Math.random();
+			if(grid[X-1][Y] === 0) {
+				//a = Math.random();
 				//if (a < 0.90) {
 					this.xVel = -5;
 					this.yVel = 0;
 				//}
 			}
-			else if (grid[X+5][Y]===0){
+			else if (grid[X+1][Y]===0){
 					this.xVel = 5;
 					this.yVel = 0;
 			}
@@ -225,7 +227,7 @@ Bike.prototype.ai = function () {
 	
 	
 	//What to do if no collition
-	if (collition === 0 && Math.random() < 0.1){
+	if (collition === 0 && Math.random() < 0.2){
 		
 	//Check where player 1 is
 		var checkCx = this.cx - g_bike1.cx;
@@ -235,36 +237,36 @@ Bike.prototype.ai = function () {
 		
 	//if player1 is down to your right
 	//go either down or right
-		if(checkCx < 0 && checkCy < 0){
+		if(checkCx < 0 && checkCy < 0 && grid[X+1][Y] === 0){
 			if(direction > 0.5 && this.xVel !== -5){
 				this.xVel = 5;
 				this.yVel = 0;
 			}
-			else if (this.yVel !== -5){
+			else if (this.yVel !== -5 && grid[X][Y+1] === 0){
 				this.xVel = 0;
 				this.yVel = 5;
 			}
 		}
 	//if player1 is up to your right
 	//go either up or right
-		else if(checkCx < 0 && checkCy > 0){
+		else if(checkCx < 0 && checkCy > 0 && grid[X+1][Y] === 0){
 			if(direction > 0.5 && this.xVel !== -5){
 				this.xVel = 5;
 				this.yVel = 0;
 			}
-			else if (this.yVel !== 5){
+			else if (this.yVel !== 5 && grid[X][Y-1] === 0){
 				this.xVel = 0;
 				this.yVel = -5;
 			}
 		}
 	//if player1 is down to your left
 	//go either down or right
-		else if(checkCx > 0 && checkCy < 0){
+		else if(checkCx > 0 && checkCy < 0 && grid[X-1][Y] === 0){
 			if(direction > 0.5 && this.xVel !== 5){
 				this.xVel = -5;
 				this.yVel = 0;
 			}
-			else if (this.yVel !== -5){
+			else if (this.yVel !== -5 && grid[X][Y+1] === 0){
 				this.xVel = 0;
 				this.yVel = 5;
 			}
@@ -272,12 +274,12 @@ Bike.prototype.ai = function () {
 		
 	//if player1 is up to your left
 	//go up or left
-		else if(checkCx > 0 && checkCy > 0){
+		else if(checkCx > 0 && checkCy > 0 && grid[X-1][Y] === 0){
 			if(direction > 0.5 && this.xVel !== 5){
 				this.xVel = -5;
 				this.yVel = 0;
 			}
-			else if (this.yVel !== 5){
+			else if (this.yVel !== 5 && grid[X][Y-1] === 0){
 				this.xVel = 0;
 				this.yVel = -5;
 			}
