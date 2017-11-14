@@ -57,15 +57,15 @@ function drawBrick(x, y, type) {
         g_ctx.fillRect(x * GridWidth, y * GridHeight, GridWidth, GridHeight);
 		    g_ctx.strokeRect(x * GridWidth + 1, y * GridHeight + 1, GridWidth - 2, GridHeight - 2);
     }
-}
+};
 
 //Collision stuff.
 function collide(nextX, nextY) {
   	var brickX = Math.floor (nextX / GridWidth);
   	var brickY = Math.floor (nextY / GridHeight);
-  	if (grid[brickX][brickY]) {
+  	if (grid[brickX][brickY] != 0) {
         return true;
     }
 
     return false;
-}
+};

@@ -123,7 +123,7 @@ Bike.prototype.reset = function () {
 		    this.xVel = 5;
 		    this.yVel = 0;
 		    audio1.play();
-		    alert("You have died. \nYour score was = " + timer);
+		    //alert("You have died. \nYour score was = " + timer);
 		    timer = 0;
 
     }
@@ -139,35 +139,86 @@ Bike.prototype.reset = function () {
 Bike.prototype.render = function (ctx) {
   	//var c = this.color;
     fillBox(ctx, this.cx, this.cy, 5, 5, this.color);
-}
+};
 
 //Function for AI
 Bike.prototype.ai = function () {
 
     var prevX = this.cx;
     var prevY = this.cy;
-
+	
+	var X = Math.floor (prevX / 5.00);
+  	var Y = Math.floor (prevY / 5.00);
     // Compute my provisional new position (barring collisions)
+	
     var nextX = prevX + this.xVel;
     var nextY = prevY + this.yVel;
-
-    var nextnextX = nextX + this.xVel;
-    var nextnextY = nextY + this.yVel;
-
-    if (collide(nextnextX, nextnextY)) {
-
+	
+	if(collide(nextX, nextY)) {
+		//If the AI is going LEFT and hits collision ...
+		if(this.xVel === -5) {
+			//...It will go DOWN if it can
+			if(grid[X][Y+1] === 0) {
+				this.xVel = 0;
+				this.yVel = 5;
+			}
+		}
+		
+		//If the AI is going DOWN and hits collision ...
+		if(this.yVel === 5) {
+			//...It will go DOWN if it can
+			if(grid[X][Y+1] === 0) {
+				this.xVel = 0;
+				this.yVel = 5;
+			}
+			//...it will go RIGHT if it can
+			else if(grid[X+1][Y] === 0) {
+				this.xVel = 5;
+				this.yVel = 0;
+			}
+		}
+		//If the AI is going RIGHT and hits collision ...
+		if(this.xVel === 5){
+			//...It will go DOWN if it can
+			if(grid[X][Y+1] === 0) {
+				this.xVel = 0;
+				this.yVel = 5;
+			}
+			//...it will go UP if it can
+			else if(grid[X][Y-1] === 0) {
+				this.xVel = 0;
+				this.yVel = -5;
+			}
+		}
+		//If the AI is going UP and hits collision ...
+		if(this.yVel === -5){
+			//...It will go DOWN if it can
+			if(grid[X][Y+1] === 0) {
+				this.xVel = 0;
+				this.yVel = 5;
+			}
+			//...it will go LEFT if it can
+			else if(grid[X-1][Y] === 0) {
+				this.xVel = -5;
+				this.yVel = 0;
+			}
+		}
+	}
+	
+	/*
+    if (collide(nextX, nextY)) {
         //Collision with x-axis
-        if (this.cy > 500 && this.cx < 50) {
+        if (this.cy > 500 && this.cx < 20) {
             this.xVel = 0;
             this.yVel = -5;
         }
 
-        else if (this.cy < 50 && this.cx < 50) {
+        else if (this.cy < 20 && this.cx < 20) {
             this.xVel = 5;
             this.yVel = 0;
         }
 
-        else if (this.cy < 50 && this.cx > 550) {
+        else if (this.cy < 20 && this.cx > 550) {
             this.xVel = 0;
             this.yVel = 5;
         }
@@ -176,5 +227,7 @@ Bike.prototype.ai = function () {
             this.xVel = -5;
             this.yVel = 0;
         }
-  }
+		else return;
+	
+	}*/
 }
