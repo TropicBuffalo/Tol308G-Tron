@@ -97,8 +97,8 @@ Bike.prototype.update = function (du) {
     }
 
   	//Paint the trails of the players
-    var brickX = Math.floor (prevX / 5.00);
-  	var brickY = Math.floor (prevY / 5.00);
+    var brickX = Math.floor (this.cx / 5.00);
+  	var brickY = Math.floor (this.cy / 5.00);
   	if (this.player === 1) {
   	    grid[brickX][brickY] = 1;
   	}
@@ -117,23 +117,20 @@ Bike.prototype.update = function (du) {
 };
 
 Bike.prototype.reset = function () {
-    if (this.player === 1 ) {
-        this.cx = 50;
-        this.cy = 50;
-		    this.xVel = 5;
-		    this.yVel = 0;
-		    audio1.play();
+        g_bike1.cx = 50;
+        g_bike1.cy = 50;
+		    g_bike1.xVel = 5;
+		    g_bike1.yVel = 0;
+		    
+
+        g_bike2.cx = 550;
+        g_bike2.cy = 550;
+		    g_bike2.xVel = -5;
+		    g_bike2.yVel = 0;
+			
+			audio1.play();
 		    //alert("You have died. \nYour score was = " + timer);
 		    timer = 0;
-
-    }
-
-    else if (this.player === 2) {
-        this.cx = 550;
-        this.cy = 550;
-		    this.xVel = -5;
-		    this.yVel = 0;
-    }
 };
 
 Bike.prototype.render = function (ctx) {
