@@ -141,6 +141,7 @@ Bike.prototype.render = function (ctx) {
 //Function for AI
 Bike.prototype.ai = function () {
 
+	var collition = 0;
     var prevX = this.cx;
     var prevY = this.cy;
 	
@@ -150,54 +151,136 @@ Bike.prototype.ai = function () {
 	
     var nextX = prevX + this.xVel * 2;
     var nextY = prevY + this.yVel * 2;
+
 	
+	//What to do if collition
 	if(collide(nextX, nextY)) {
+		console.log("collition");
 		//If the AI is going LEFT and hits collision ...
 		if(this.xVel === -5) {
 			//...It will go DOWN if it can
-			if(grid[X][Y+1] === 0) {
+
+			if(grid[X][Y+5] === 0) {
 				a = Math.random();
-				if (a < 0.90) {
+				//if (a < 0.90) {
 					this.xVel = 0;
 					this.yVel = 5;
-				}
+				//}
+			}
+			else if (grid[X][Y-1]===0){
+				this.xVel = 0;
+				this.yVel = -5;
 			}
 		}
 		
 		//If the AI is going DOWN and hits collision ...
-		if(this.yVel === 5) {
-			
+		else if(this.yVel === 5) {
 			//...it will go RIGHT if it can
-			if(grid[X+1][Y] === 0) {
+			if(grid[X+5][Y] === 0) {
 				a = Math.random();
-				if (a < 0.90) {
+				//if (a < 0.90) {
 					this.xVel = 5;
 					this.yVel = 0;
-				}
+				//}
+			}
+			else if (grid[X-5][Y]===0){
+					this.xVel = -5;
+					this.yVel = 0;
 			}
 		}
 		//If the AI is going RIGHT and hits collision ...
-		if(this.xVel === 5){
+		else if(this.xVel === 5){
 			//...it will go UP if it can
-			if(grid[X][Y-1] === 0) {
+			if(grid[X][Y-5] === 0) {
 				a = Math.random();
-				if (a < 0.90) {
+				//if (a < 0.90) {
 					this.xVel = 0;
 					this.yVel = -5;
-				}
+				//}
+			}
+			else if (grid[X][Y+5]===0){
+					this.xVel = 0;
+					this.yVel = 5;
 			}
 		}
 		//If the AI is going UP and hits collision ...
-		if(this.yVel === -5){
+		else if(this.yVel === -5){
 			//...it will go LEFT if it can
-			if(grid[X-1][Y] === 0) {
+			if(grid[X-5][Y] === 0) {
 				a = Math.random();
-				if (a < 0.90) {
+				//if (a < 0.90) {
 					this.xVel = -5;
 					this.yVel = 0;
-				}
+				//}
+			}
+			else if (grid[X+5][Y]===0){
+					this.xVel = 5;
+					this.yVel = 0;
 			}
 			
+		}
+		collition = 1;
+	}
+	
+	
+	
+	//What to do if no collition
+	if (collition === 0 && Math.random() < 0.1){
+		
+	//Check where player 1 is
+		var checkCx = this.cx - g_bike1.cx;
+		var checkCy = this.cy - g_bike1.cy;
+		
+		var direction = Math.random();
+		
+	//if player1 is down to your right
+	//go either down or right
+		if(checkCx < 0 && checkCy < 0){
+			if(direction > 0.5 && this.xVel !== -5){
+				this.xVel = 5;
+				this.yVel = 0;
+			}
+			else if (this.yVel !== -5){
+				this.xVel = 0;
+				this.yVel = 5;
+			}
+		}
+	//if player1 is up to your right
+	//go either up or right
+		else if(checkCx < 0 && checkCy > 0){
+			if(direction > 0.5 && this.xVel !== -5){
+				this.xVel = 5;
+				this.yVel = 0;
+			}
+			else if (this.yVel !== 5){
+				this.xVel = 0;
+				this.yVel = -5;
+			}
+		}
+	//if player1 is down to your left
+	//go either down or right
+		else if(checkCx > 0 && checkCy < 0){
+			if(direction > 0.5 && this.xVel !== 5){
+				this.xVel = -5;
+				this.yVel = 0;
+			}
+			else if (this.yVel !== -5){
+				this.xVel = 0;
+				this.yVel = 5;
+			}
+		}
+		
+	//if player1 is up to your left
+	//go up or left
+		else if(checkCx > 0 && checkCy > 0){
+			if(direction > 0.5 && this.xVel !== 5){
+				this.xVel = -5;
+				this.yVel = 0;
+			}
+			else if (this.yVel !== 5){
+				this.xVel = 0;
+				this.yVel = -5;
+			}
 		}
 	}
 	
@@ -208,22 +291,20 @@ Bike.prototype.ai = function () {
             this.xVel = 0;
             this.yVel = -5;
         }
-
         else if (this.cy < 20 && this.cx < 20) {
             this.xVel = 5;
             this.yVel = 0;
         }
-
         else if (this.cy < 20 && this.cx > 550) {
             this.xVel = 0;
             this.yVel = 5;
         }
-
         else if (this.cy > 500 && this.cx > 550) {
             this.xVel = -5;
             this.yVel = 0;
         }
 		else return;
 	
-	}*/
+	}
+	*/
 }
