@@ -15,15 +15,13 @@ for (var i = 0 ; i < canvasGridX; i++) {
 //Changed numbers to fit a "scoreboard" on the bottom while
 //keeping playable dimensions the ame.
 for (var i = 0; i < canvasGridX; i++) {
-	grid[i][0] = 3;
-	grid[i][canvasGridY - 11] = 3;
+  	grid[i][0] = 3;
+  	grid[i][canvasGridY - 11] = 3;
 }
 for (var i = 0; i < canvasGridY - 10; i++) {
-	grid[0][i] = 3;
-	grid[canvasGridX - 1][i] = 3;
+  	grid[0][i] = 3;
+  	grid[canvasGridX - 1][i] = 3;
 }
-
-
 
 //Creates the bricks.
 function createBricks() {
@@ -37,7 +35,7 @@ function createBricks() {
 //"Draws" the bricks.
 function drawBrick(x, y, type) {
     switch (type) {
-			case 3:
+			  case 3:
       			g_ctx.fillStyle = '#39FF14';
       			break;
     		case 2:
@@ -48,9 +46,8 @@ function drawBrick(x, y, type) {
       			//Color does nothing, just there for the type.
       			g_ctx.fillStyle = 'blue';
       			break;
-                default:
-                    break;
-
+        default:
+            break;
     }
 
     if (type) {
@@ -66,6 +63,5 @@ function collide(nextX, nextY) {
   	if (grid[brickX][brickY] != 0) {
         return true;
     }
-
     return false;
 };
