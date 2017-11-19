@@ -53,7 +53,7 @@ startScreen = (function (input) {
         if (mouseJustClicked && !transitioning) {
             transitioning = true;
             g_main.init();
-	          g_isUpdatePaused = false;
+	        g_isUpdatePaused = false;
         }
         wasButtonDown = isButtonDown;
     }
