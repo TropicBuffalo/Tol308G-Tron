@@ -27,8 +27,17 @@
 		padding:20px;
 	}
 	
+	.player1 {
+		margin-top:20px;
+		color:blue;
+	}
+	.player2 {
+		margin-top:20px;
+		color:red;
+	}
+	
 	.buttons {
-		margin-top: 50px;
+		margin-top: 30px;
 	}
 	canvas{
 		background-color: black;
@@ -47,19 +56,22 @@
 		<div class = "instructions">
 			<h1> Instructions<h1>
 			<h2>Controls:</h2>
-			<p>Player 1 (blue)</p>
-			<p>W : UP , S : DOWN , A : LEFT , D : RIGHT </p>
-			<p>If second player is toggled on below, his controls are the ARROW KEYS:</p>
-			<p>Player 2 (red)</p>
-			<p>ARROW KEY UP : UP , ARROW KEY DOWN : DOWN</p>
-			<p>ARROW KEY LEFT : LEFT , ARROW KEY RIGHT : RIGHT </p>
-		
+			<div class="player1">
+				<h3>Player 1</h3>
+				<p>W : UP , S : DOWN , A : LEFT , D : RIGHT </p>
+				<p>If second player is toggled on below, his controls are the ARROW KEYS:</p>
+			</div>
+			<div class ="player2">
+				<h3>Player 2</h3>
+				<p>ARROW KEY UP : UP , ARROW KEY DOWN : DOWN</p>
+				<p>ARROW KEY LEFT : LEFT , ARROW KEY RIGHT : RIGHT </p>
+			</div>
 			<div class = "buttons">
-				<p>Sound</p>
+				<h2>Sound</h2>
 				<input type="radio" name="sound" id="1" onchange="mutesound()" checked> Off
 				<input type="radio" name="sound" id="2" onchange="mutesound()"> On
 
-				<p>Players</p>
+				<h2>Players</h2>
 				<input type="radio" name="players" id="3" onchange="AIon()" checked> 1 Player
 				<input type="radio" name="players" id="4" onchange="AIon()"> 2 Players
 			</div>
