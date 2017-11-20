@@ -7,9 +7,9 @@ var g_ctx = g_canvas.getContext("2d");
 g_ctx.font="Bold 20px Arial";
 
 var timer = setInterval(function() {
-		if (!g_isUpdatePaused) {
-			timer += 100;
-		}
+	if (!g_isUpdatePaused) {
+		timer += 100;
+	}
 }, 100);
 
 //Byrjar á 1 í stað 0 svo setjum 0 í byrjun
@@ -24,24 +24,24 @@ audio.play();
 
 //Radio button kallar á þetta til að mute-a / unmute-a.
 function mutesound() {
-		if (document.getElementById("1").checked === true) {
-				audio.muted = true;
-				audio1.muted = true;
-		}
-		else if (document.getElementById("2").checked === true) {
-				audio.muted = false;
-				audio1.muted = false;
-		}
+	if (document.getElementById("1").checked === true) {
+		audio.muted = true;
+		audio1.muted = true;
+	}
+	else if (document.getElementById("2").checked === true) {
+		audio.muted = false;
+		audio1.muted = false;
+	}
 }
 
 // Radio button for choice of 1 or 2 players
 function AIon() {
-		if (document.getElementById("3").checked === true) {
-				g_bike2.AI = true;
-		}
-		else if (document.getElementById("4").checked === true) {
-				g_bike2.AI = false;
-		}
+	if (document.getElementById("3").checked === true) {
+		g_bike2.AI = true;
+	}
+	else if (document.getElementById("4").checked === true) {
+		g_bike2.AI = false;
+	}
 }
 
 /*
@@ -71,8 +71,8 @@ var g_bike1 = new Bike({
     width: 5,
     height: 5,
     color : "blue",
-		player : 1,
-		AI : false,
+	player : 1,
+	AI : false,
     xVel: 5,
     yVel: 0,
 	GO_LEFT   : KEY_A,
@@ -92,9 +92,9 @@ var g_bike2 = new Bike({
     cy: 550,
     width: 5,
     height: 5,
-		color : "red",
-		player : 2,
-		AI : true,
+	color : "red",
+	player : 2,
+	AI : true,
     xVel: -5,
     yVel: 0,
 
@@ -129,7 +129,7 @@ function gatherInputs() {
 
 function updateSimulation(du) {
     g_bike1.update(du);
-	  g_bike2.update(du);
+	g_bike2.update(du);
 }
 
 
@@ -149,9 +149,9 @@ function updateSimulation(du) {
 
 function renderSimulation(ctx) {
     createBricks();
-	  g_bike1.render(ctx);
+	g_bike1.render(ctx);
     g_bike2.render(ctx);
-	  g_ctx.fillText("Score : " + timer, 20, 630);
+	g_ctx.fillText("Score : " + timer, 20, 630);
 }
 
 // Kick it off

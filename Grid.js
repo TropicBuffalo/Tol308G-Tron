@@ -35,17 +35,17 @@ function createBricks() {
 //"Draws" the bricks.
 function drawBrick(x, y, type) {
     switch (type) {
-			  case 3:
-      			g_ctx.fillStyle = '#39FF14';
-      			break;
-    		case 2:
-      			//Color does nothing, just there for the type.
-      			g_ctx.fillStyle = 'red';
-      			break;
-    		case 1:
-      			//Color does nothing, just there for the type.
-      			g_ctx.fillStyle = 'blue';
-      			break;
+		case 3:
+      		g_ctx.fillStyle = '#39FF14';
+      		break;
+    	case 2:
+      		//Color does nothing, just there for the type.
+      		g_ctx.fillStyle = 'red';
+      		break;
+    	case 1:
+      		//Color does nothing, just there for the type.
+      		g_ctx.fillStyle = 'blue';
+      		break;
         default:
             break;
     }
