@@ -236,7 +236,7 @@ Bike.prototype.ai = function () {
     	else if (this.yVel === -5) {
       			//50% chance it will go LEFT if viable
       		if (grid[X-1][Y] === 0 && checkCx > 0) {
-        		his.xVel = -5;
+        		this.xVel = -5;
         		this.yVel = 0;
 			}
       			//Check if it can go RIGHT
