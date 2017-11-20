@@ -4,15 +4,67 @@
     <meta charset="UTF-8">
     <title>Tron!</title>
 	<style>
-		canvas {background-color: black;}
+	*{
+		box-sizing: inherit;
+		padding: 0;
+		margin: 0; 
+	}
+	html {
+		background-color: black;
+		font-family: helvetica, arial, sans-serif;
+		font-size: 16px;
+		line-height: 1.5; 
+		color: #39FF14;
+	}	
+	.game {
+		display: flex;
+		flex-direction: row;
+		max-width: 1200px;
+		padding: 20px;
+		margin: 20px auto; 
+	}
+	.instructions {
+		padding:20px;
+	}
+	
+	.buttons {
+		margin-top: 50px;
+	}
+	canvas{
+		background-color: black;
+	}
 	</style>
   </head>
   <body>
-	<canvas id="myCanvas" width="600" height="650"
-		style="border: 1px solid black;">
-	Sorry, but your browser does not support the HTML5 canvas tag.
-	</canvas>
+	<div class= "game">
+		<div>
+			<canvas id="myCanvas" width="600" height="650"
+				style="border: 1px solid black;">
+			Sorry, but your browser does not support the HTML5 canvas tag.
+			</canvas>
+		</div>
+		
+		<div class = "instructions">
+			<h1> Instructions<h1>
+			<h2>Controls:</h2>
+			<p>Player 1 (blue)</p>
+			<p>W : UP , S : DOWN , A : LEFT , D : RIGHT </p>
+			<p>If second player is toggled on below, his controls are the ARROW KEYS:</p>
+			<p>Player 2 (red)</p>
+			<p>ARROW KEY UP : UP , ARROW KEY DOWN : DOWN</p>
+			<p>ARROW KEY LEFT : LEFT , ARROW KEY RIGHT : RIGHT </p>
+		
+			<div class = "buttons">
+				<p>Sound</p>
+				<input type="radio" name="sound" id="1" onchange="mutesound()" checked> Off
+				<input type="radio" name="sound" id="2" onchange="mutesound()"> On
 
+				<p>Players</p>
+				<input type="radio" name="players" id="3" onchange="AIon()" checked> 1 Player
+				<input type="radio" name="players" id="4" onchange="AIon()"> 2 Players
+			</div>
+		</div>
+	</div>
     <div id="output"></div>
 	<script src="globals.js"></script>
 	<script src="utils.js"></script>
@@ -26,12 +78,6 @@
 	
     <script src="Tron.js"></script>
 
-	<p>Sound</p>
-	<input type="radio" name="sound" id="1" onchange="mutesound()" checked> Off
-	<input type="radio" name="sound" id="2" onchange="mutesound()"> On
-
-  <p>Players</p>
-	<input type="radio" name="players" id="3" onchange="AIon()" checked> 1 Player
-	<input type="radio" name="players" id="4" onchange="AIon()"> 2 Players
+	
   </body>
 </html>
